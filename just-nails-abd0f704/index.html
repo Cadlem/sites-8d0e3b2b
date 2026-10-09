@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Just Nails — Nail Salon, Watauga TX</title>
+<style>
+@font-face{font-family:'Fraunces';src:url(fonts/Fraunces.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+@font-face{font-family:'Outfit';src:url(fonts/Outfit.woff2) format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+:root{--cream:#f6ede3;--sand:#ead8c3;--cog:#8c4a2b;--rose:#d98f86;--plum:#3b2230;--ink:#2a1a22}
+*{box-sizing:border-box;margin:0}
+body{font-family:'Outfit',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:17px}
+h1,h2,h3{font-family:'Fraunces',Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;letter-spacing:-.01em}
+em{font-style:italic;color:var(--cog)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 5vw;position:sticky;top:0;background:rgba(246,237,227,.94);backdrop-filter:blur(6px);z-index:40;border-bottom:1px solid rgba(60,30,40,.12)}
+.logo{font-family:'Fraunces',Georgia,serif;font-size:28px;font-weight:600;color:var(--plum)}.logo i{color:var(--rose)}
+nav ul{display:flex;gap:30px;list-style:none;padding:0;font-size:15px;letter-spacing:.08em;text-transform:uppercase}nav a{color:inherit;text-decoration:none}
+.btn{display:inline-block;background:var(--plum);color:#fff;padding:13px 26px;border-radius:999px;text-decoration:none;font-weight:500;letter-spacing:.03em}
+.btn.o{background:transparent;color:var(--plum);border:1.5px solid var(--plum)}
+.hero{display:grid;grid-template-columns:1fr 1.15fr;min-height:calc(800px - 72px)}
+.hero .t{padding:5vw 4vw 5vw 6vw;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.eyebrow{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--cog);font-weight:600}
+.hero h1{font-size:clamp(46px,6vw,88px)}
+.hero p{max-width:30em;font-size:19px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;gap:26px;margin-top:10px;flex-wrap:wrap}.facts b{display:block;font-family:"Fraunces",serif;font-size:28px;font-weight:500;color:var(--cog)}.facts span{font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.hero .pic{background:url(assets/room_wide.jpg) 30% center/cover;border-radius:260px 0 0 0;margin:24px 0 0}
+section{padding:90px 6vw}
+.sec-h{max-width:640px;margin-bottom:46px}.sec-h h2{font-size:clamp(34px,4.4vw,58px);margin-top:10px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center;background:var(--sand)}
+.about .im{display:grid;grid-template-columns:1fr 1fr;gap:14px}.about .im div{border-radius:200px 200px 16px 16px;background-size:cover;background-position:center;height:420px}
+.about .im div+div{margin-top:50px;border-radius:16px 16px 200px 200px}
+.about p+p{margin-top:14px}
+.tips{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.tips span{border:1.5px solid var(--cog);color:var(--cog);padding:6px 16px;border-radius:99px;font-size:14px}
+.gal{columns:3;column-gap:16px}.gal div{break-inside:avoid;margin-bottom:16px;border-radius:14px;background-size:cover;background-position:center}
+.w1{height:300px}.w2{height:440px}.w3{height:260px}.w4{height:380px}.w5{height:320px}.w6{height:300px}
+.team{background:var(--plum);color:#f4e6dc;display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:center}
+.team h2{color:#fff}.team em{color:var(--rose)}.names{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}.names span{font-family:'Fraunces',serif;font-size:28px;border-bottom:2px solid var(--rose)}
+.team .im{height:420px;border-radius:16px;background:url(assets/polish_rounds.jpg) center/cover}
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+blockquote{background:#fff;border-radius:16px;padding:30px;box-shadow:0 10px 30px rgba(60,30,40,.08)}
+blockquote p{font-family:'Fraunces',Georgia,serif;font-size:20px;line-height:1.35}blockquote cite{display:block;margin-top:16px;font-style:normal;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--cog)}
+.score{display:flex;gap:16px;align-items:baseline;margin-bottom:30px}.score b{font-family:'Fraunces',serif;font-size:70px;font-weight:500;color:var(--cog)}
+.visit{display:grid;grid-template-columns:1fr 1.2fr;padding:0;background:var(--sand)}
+.visit .t{padding:80px 6vw;display:flex;flex-direction:column;gap:16px}
+.hrs{border-collapse:collapse;width:100%;max-width:380px}.hrs td{padding:8px 0;border-bottom:1px solid rgba(60,30,40,.2)}.hrs td+td{text-align:right;font-weight:600}
+.map{background:url(assets/map.jpg) center/cover;min-height:480px}
+footer{background:var(--ink);color:#d9c6b8;padding:28px 6vw;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
+.tag{position:fixed;right:12px;bottom:10px;background:rgba(0,0,0,.65);color:#fff;font-size:11px;padding:4px 10px;border-radius:99px;z-index:99;letter-spacing:.5px}
+@media(max-width:860px){body{font-size:16px}nav ul{display:none}.logo{font-size:24px}nav .btn{padding:9px 16px;font-size:14px}
+.hero{grid-template-columns:1fr;min-height:0}.hero .pic{order:-1;height:260px;border-radius:0;margin:0}.hero .t{padding:30px 6vw 44px}
+.about,.team,.visit{grid-template-columns:1fr}.about .im div{height:260px}.gal{columns:2}.rev{grid-template-columns:1fr}section{padding:60px 6vw}.visit .t{padding:50px 6vw}.map{min-height:280px}.team .im{height:280px}.facts{gap:22px}}
+</style></head><body>
+<nav><div class="logo">Just <i>Nails</i></div><ul><li><a href="#salon">The Salon</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#visit">Visit</a></li></ul><a class="btn" href="tel:+18172817777">Call (817) 281-7777</a></nav>
+
+<header class="hero">
+ <div class="t"><div class="eyebrow">Nail salon · Watauga, Texas</div>
+  <h1>Sweet, kind &amp; <em>careful</em> hands.</h1>
+  <p>Manicures, pedicures and gel nails in a clean, calm salon on Denton Highway. Walk-ins welcome.</p>
+  <div class="cta"><a class="btn" href="tel:+18172817777">Call to book</a><a class="btn o" href="#gallery">See the salon</a></div>
+  <div class="facts"><div><b>4.8★</b><span>171 Google reviews</span></div><div><b>Walk-ins</b><span>always welcome</span></div><div><b>Mon–Sat</b><span>open till 7 PM</span></div></div></div>
+ <div class="pic"></div>
+</header>
+
+<section class="about" id="salon">
+ <div class="im"><div style="background-image:url(assets/chair_a.jpg)"></div><div style="background-image:url(assets/chair_c.jpg)"></div></div>
+ <div><div class="eyebrow">The salon</div><h2 style="font-size:clamp(34px,4.4vw,56px);margin:10px 0 18px">Neat, clean &amp; <em>comfortable.</em></h2>
+  <p>Customers describe Just Nails as a place where the staff is attentive and the experience feels personal, with great quality, fair prices and real attention to detail.</p>
+  <p>Cognac leather pedicure chairs, a wall of polish colors to pick from, and manicure stations: come in for ombré, gel, or a simple pedicure.</p>
+  <div class="tips"><span>Walk-ins welcome</span><span>Credit cards accepted</span><span>Bike parking</span><span>Lot parking</span></div></div>
+</section>
+
+<section id="gallery"><div class="sec-h"><div class="eyebrow">Inside Just Nails</div><h2>Pick a color. <em>Pick a chair.</em></h2></div>
+ <div class="gal"><div class="w1" style="background-image:url(assets/polish_wall.jpg)"></div><div class="w2" style="background-image:url(assets/chair_b.jpg)"></div><div class="w3" style="background-image:url(assets/mani_station.jpg)"></div><div class="w4" style="background-image:url(assets/pedi_orange.jpg)"></div><div class="w5" style="background-image:url(assets/hall.jpg)"></div><div class="w6" style="background-image:url(assets/nails_ombre.jpg)"></div></div></section>
+
+<section class="team"><div><div class="eyebrow" style="color:var(--rose)">The people</div><h2 style="font-size:clamp(34px,4.4vw,56px);margin-top:10px">Customers ask for <em>Eric, Holly &amp; Julie</em> by name.</h2>
+ <p style="margin-top:18px">Reviewers keep naming them: friendly, patient, and thorough. A salon runs on repeat customers, and this one earns them.</p><div class="names"><span>Eric</span><span>Holly</span><span>Julie</span></div></div><div class="im"></div></section>
+
+<section id="reviews"><div class="sec-h"><div class="eyebrow">Kind words</div><h2>What clients <em>write</em></h2></div>
+ <div class="score"><b>4.8</b><div><div style="color:var(--cog);letter-spacing:3px;font-size:22px">★★★★★</div>171 reviews on Google</div></div>
+ <div class="rev">
+ <blockquote><p>“Absolutely love my ombré nail color coordinates perfectly with toes… Eric, Holly &amp; Julie are awesome.”</p><cite>Google review · Aug 2025</cite></blockquote>
+ <blockquote><p>“My husband and I wandered in on a date night for pedicures. The whole experience was excellent… Highly recommend this salon!”</p><cite>Google review · Jul 2025</cite></blockquote>
+ <blockquote><p>“Eric &amp; Holy were as nice as can be and did a fantastic job!”</p><cite>Google review · Apr 2025</cite></blockquote></div></section>
+
+<section class="visit" id="visit"><div class="t"><div class="eyebrow">Visit</div><h2 style="font-size:clamp(34px,4vw,52px)">Denton Hwy, <em>suite 117</em></h2>
+ <p>6900 Denton Hwy #117<br>Watauga, TX 76148</p>
+ <table class="hrs"><tr><td>Mon – Fri</td><td>10 AM – 7 PM</td></tr><tr><td>Saturday</td><td>9 AM – 7 PM</td></tr><tr><td>Sunday</td><td>Closed</td></tr></table>
+ <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px"><a class="btn" href="tel:+18172817777">Call (817) 281-7777</a></div></div><div class="map"></div></section>
+<footer><span>© Just Nails · 6900 Denton Hwy #117, Watauga, TX 76148</span><span>Walk-ins welcome</span></footer>
+<div class="tag">Sample design by Vortac</div>
+<script>document.documentElement.dataset.h=Math.max(document.documentElement.scrollHeight,document.body.scrollHeight);addEventListener('load',()=>document.documentElement.dataset.h=document.documentElement.scrollHeight)</script>
+</body></html>
