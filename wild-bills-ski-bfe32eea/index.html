@@ -1,0 +1,168 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wild Bill's Ski &amp; Snowboard — Red River, NM (sample redesign)</title>
+<style>
+@font-face{font-family:'Fraunces';src:url(fonts/Fraunces.woff2) format('woff2');font-weight:100 900;font-display:swap}
+@font-face{font-family:'Barlow Condensed';src:url(fonts/BarlowCondensed-SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Barlow Condensed';src:url(fonts/BarlowCondensed-Bold.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Barlow';src:url(fonts/Barlow-Regular.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Barlow';src:url(fonts/Barlow-Medium.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Barlow';src:url(fonts/Barlow-SemiBold.woff2) format('woff2');font-weight:600;font-display:swap}
+:root{--pine:#101f27;--pine2:#18303b;--wood:#6e4125;--wood2:#8d5a36;--cream:#f6efe2;--snow:#fbfaf6;--amber:#e8993a;--red:#b8412b;--ink:#1a1612}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:400 17px/1.55 Barlow,'Helvetica Neue',Arial,sans-serif;color:var(--ink);background:var(--snow)}
+h1,h2,h3{font-family:Fraunces,Georgia,'Times New Roman',serif;font-weight:800;line-height:1.05;letter-spacing:-.01em}
+.lab{font:700 14px/1 'Barlow Condensed','Arial Narrow',Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+a{color:inherit}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+nav{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:18px 32px;color:#fff}
+nav .links{display:flex;gap:26px;font:600 16px 'Barlow Condensed','Arial Narrow',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+nav .links a{text-decoration:none;opacity:.9}
+.btn{display:inline-block;font:700 17px/1 'Barlow Condensed','Arial Narrow',sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:16px 26px;border-radius:3px;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.b1{background:var(--amber);color:#1b1208}.b2{border-color:#fff;color:#fff}.b3{background:var(--pine);color:#fff}
+.hero{position:relative;min-height:760px;color:#fff;background:linear-gradient(180deg,rgba(16,31,39,.55) 0%,rgba(16,31,39,.15) 40%,rgba(16,31,39,.9) 100%),url(assets/hero_snow.jpg) center/cover,var(--pine);display:flex;align-items:flex-end}
+.hero .wrap{padding-bottom:70px;display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:end;width:100%}
+.hero h1{font-size:clamp(46px,7vw,92px);margin:16px 0 22px}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--amber)}
+.hero p.l{font-size:20px;max-width:560px;opacity:.95}
+.cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.card-hero{background:rgba(251,250,246,.97);color:var(--ink);border-radius:6px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.card-hero img{width:92px;float:right;margin:-62px -6px 0 10px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));transform:rotate(4deg)}
+.card-hero h3{font-size:24px;margin-bottom:10px}
+.card-hero dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:16px}
+.card-hero dt{font:700 13px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--wood);padding-top:3px}
+.strip{background:var(--wood);color:#f9e9d2;font:600 18px 'Barlow Condensed','Arial Narrow',sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.strip .wrap{display:flex;justify-content:space-between;gap:10px 20px;padding:16px 24px;flex-wrap:wrap;font-size:16px}
+section{padding:92px 0}
+.sec-h{max-width:720px;margin-bottom:46px}.sec-h h2{font-size:clamp(34px,4.4vw,56px);margin-top:12px}
+.sec-h p{margin-top:14px;color:#4b4338;font-size:19px}
+.story{background:var(--cream)}
+.story .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:60px;align-items:center}
+.story img.t{width:100%;border-radius:4px;box-shadow:14px 14px 0 var(--wood2)}
+.story blockquote{margin-top:26px;border-left:4px solid var(--amber);padding:4px 0 4px 20px;font:italic 400 21px/1.4 Fraunces,Georgia,serif}
+.story cite{display:block;font:600 14px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;margin-top:8px;font-style:normal;color:var(--wood)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{background:#fff;border:1px solid #e3dac8;border-radius:4px;padding:26px;border-top:5px solid var(--wood2)}
+.svc h3{font-size:25px;margin:10px 0}
+.svc p{color:#4b4338;font-size:16px}
+.dark{background:var(--pine);color:#fff}
+.dark .sec-h p{color:#b9c6cc}
+/* booking */
+.book{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:start}
+.panel{background:#fff;color:var(--ink);border-radius:6px;padding:26px;box-shadow:0 12px 40px rgba(0,0,0,.25)}
+.panel h3{font-size:22px;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.step{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--amber);font:700 16px 'Barlow Condensed',sans-serif;color:#1b1208;flex:none}
+.row2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:22px}
+label.f{display:block;font:700 13px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--wood)}
+.f input,.f select{width:100%;margin-top:5px;font:500 17px Barlow,sans-serif;padding:11px 12px;border:1.5px solid #cfc3ab;border-radius:3px;background:#fffdf8}
+.tabs{display:flex;gap:6px;margin:6px 0 12px}
+.tabs button{font:700 15px 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border:1.5px solid #cfc3ab;background:#fff;border-radius:3px;cursor:pointer}
+.tabs button.on{background:var(--pine);color:#fff;border-color:var(--pine)}
+.item{display:grid;grid-template-columns:1fr auto auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px dashed #d9ccb2}
+.item b{font:700 19px 'Barlow Condensed',sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.item small{display:block;color:#6a5f50;font-size:14px;line-height:1.3}
+.pr{font:700 20px 'Barlow Condensed',sans-serif;text-align:right;min-width:90px}.pr small{font:400 13px Barlow;color:#6a5f50}
+.q{display:flex;align-items:center;gap:8px}.q button{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--wood);background:#fff;font:700 18px/1 Barlow;cursor:pointer}.q span{min-width:18px;text-align:center;font-weight:600}
+.cart .ln{display:flex;justify-content:space-between;gap:10px;font-size:16px;padding:6px 0}
+.cart .tot{display:flex;justify-content:space-between;border-top:2px solid var(--ink);margin-top:10px;padding-top:12px;font:700 24px 'Barlow Condensed',sans-serif;letter-spacing:.04em}
+.cart .note{font-size:13px;color:#6a5f50;margin-top:8px}
+.pay{margin-top:18px;display:grid;gap:10px}
+.wal{display:flex;align-items:center;justify-content:center;gap:8px;height:50px;border-radius:8px;font:600 20px -apple-system,'Helvetica Neue',Arial,sans-serif;border:0;cursor:pointer;width:100%}
+.ap{background:#000;color:#fff}.gp{background:#fff;color:#3c4043;border:1.5px solid #747775}.cd{background:var(--wood);color:#fff;font:700 18px 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.or{text-align:center;font:600 13px 'Barlow Condensed',sans-serif;letter-spacing:.18em;color:#8a7e6c;text-transform:uppercase}
+.badges{display:flex;gap:8px;justify-content:center;margin-top:4px}
+.badges svg{height:28px;width:auto;border:1px solid #d6cbb6;border-radius:4px;background:#fff}
+.sample{background:#fff4d6;border:1.5px dashed #c9941f;color:#6b4b00;border-radius:4px;padding:10px 12px;font-size:14px;margin-top:14px;line-height:1.4}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(120px);background:var(--pine);color:#fff;padding:14px 22px;border-radius:6px;transition:.3s;z-index:20;font-size:16px;max-width:90vw;text-align:center}.toast.on{transform:translateX(-50%) translateY(0)}
+/* lodging */
+.lodge-g{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:200px 200px;gap:10px;margin-bottom:30px}
+.lodge-g img{width:100%;height:100%;object-fit:cover;border-radius:4px}.lodge-g img:first-child{grid-row:span 2}
+.vr{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.vr .u{background:var(--pine2);border:1px solid #2c4753;border-radius:4px;padding:22px}
+.vr h3{font-size:22px;color:#fff}.vr p{color:#b9c6cc;font-size:16px;margin:8px 0 16px}
+.vr a.btn{padding:12px 16px;font-size:15px}
+.pill{display:inline-block;font:700 13px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;background:var(--amber);color:#1b1208;padding:5px 9px;border-radius:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.two img{width:100%;border-radius:4px}
+.tune{width:100%;border-collapse:collapse;margin-top:18px;font-size:17px}.tune td{padding:9px 0;border-bottom:1px dashed #c9bda5}.tune td:last-child{text-align:right;font:700 20px 'Barlow Condensed',sans-serif}
+.kof{background:linear-gradient(90deg,rgba(16,31,39,.9),rgba(16,31,39,.55)),url(assets/koffee_btm_img.jpg) center/cover;color:#fff}
+footer{background:#0a141a;color:#b9c6cc;padding:50px 0 90px;font-size:16px}
+footer .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:30px}
+footer h4{font:700 15px 'Barlow Condensed',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);margin-bottom:10px}
+.tag{position:fixed;right:12px;bottom:12px;background:rgba(10,20,26,.9);color:#fff;font:600 12px 'Barlow Condensed',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:7px 11px;border-radius:3px;z-index:30}
+.callbar{display:none}
+@media(max-width:900px){nav .links{display:none}nav{padding:14px 18px}.hero{min-height:0;padding-top:110px}.hero .wrap{grid-template-columns:1fr;padding-bottom:40px}.story .wrap,.two,.book,footer .wrap{grid-template-columns:1fr}.grid3,.vr{grid-template-columns:1fr}.lodge-g{grid-template-columns:1fr 1fr;grid-template-rows:180px 120px 120px}.lodge-g img:first-child{grid-column:span 2;grid-row:auto}.row2{grid-template-columns:1fr}section{padding:60px 0}.card-hero img{display:none}.item{grid-template-columns:1fr auto}.item .pr{grid-column:1/-1;text-align:left}.callbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:25}.callbar a{flex:1;text-align:center;padding:14px;font:700 17px 'Barlow Condensed',sans-serif;letter-spacing:.12em;text-transform:uppercase;text-decoration:none}.callbar a:first-child{background:var(--amber);color:#1b1208}.callbar a:last-child{background:var(--pine);color:#fff}.tag{bottom:58px}}
+</style></head><body>
+<nav><a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none"><img src="assets/logo.png" alt="Wild Bill's" width="54" style="filter:drop-shadow(0 3px 6px rgba(0,0,0,.5))"><span style="font:800 22px Fraunces,Georgia,serif">Wild Bill's</span></a>
+<div class="links"><a href="#rent">Rentals</a><a href="#tune">Repair &amp; Tune</a><a href="#stay">Lodging</a><a href="#koffee">Koffee House</a><a href="#summer">Summer Shop</a><a href="#visit">Visit</a></div>
+<a class="btn b1" href="tel:+15757542428">575-754-2428</a></nav>
+<header class="hero" id="top"><div class="wrap"><div>
+<span class="lab">Red River, New Mexico · Since the early '80s</span>
+<h1>Your Red River adventure <em>starts here.</em></h1>
+<p class="l">Ski and snowboard rentals, tuning, a coffee bar and ski-in lodging — all in one building, a block and a half from the Red River Ski Area and a half-block walk to the Platinum chair.</p>
+<div class="cta"><a class="btn b1" href="#rent">Reserve your gear</a><a class="btn b2" href="tel:+15757542428">Call 575-754-2428</a></div></div>
+<aside class="card-hero"><img src="assets/logo.png" alt=""><h3>Open 7 days a week</h3><dl><dt>Hours</dt><dd>8 am – 6 pm MST, including holidays</dd><dt>Find us</dt><dd>325 W. Main St., corner of Pioneer</dd><dt>Book ahead</dt><dd>Reserve 3 days out and your boots and skis are set up before you arrive</dd></dl></aside></div></header>
+<div class="strip"><div class="wrap"><span>Skis &amp; boards from K2 · Völkl · Lib Tech</span><span>Wintersteiger tuning room</span><span>Pet-friendly lodging</span><span>Summer shop opens in May</span></div></div>
+
+<section class="story"><div class="wrap"><img class="t" src="assets/ski_shop_img.jpg" alt="Wild Bill's technicians in the tech room"><div>
+<span class="lab" style="color:var(--wood)">Our story</span><h2 style="font-size:clamp(34px,4.4vw,54px);margin:12px 0 18px">A family-run shop at the foot of the Face.</h2>
+<p>Wild Bill's has been in business since the early 1980s and has been owned by K Bolan since 1993. Certified technicians fit every boot, and every rental is inspected and tuned before it leaves the counter. The goal is simple: be your one-stop shop, from first-timers to experts.</p>
+<blockquote>“Very good price and the workers were extremely helpful and nice. Ski and Snowboard boots fit perfect and it was a lot of fun.”<cite>Yelp reviewer, March 2025</cite></blockquote></div></div></section>
+
+<section><div class="wrap"><div class="sec-h"><span class="lab" style="color:var(--wood)">What we do</span><h2>Everything for a Red River trip, under one roof.</h2></div>
+<div class="grid3">
+<div class="svc"><span class="lab" style="color:var(--wood2)">Winter</span><h3>Ski &amp; snowboard rentals</h3><p>Basic, Performance, High Performance and Demo ski packages, plus snowblades, junior and child sets and snowboard packages. All gear is inspected and tuned before rental.</p></div>
+<div class="svc"><span class="lab" style="color:var(--wood2)">Pro shop</span><h3>Repair &amp; tuning</h3><p>Wintersteiger machines, full tunes, edge work, wax, and binding service. Bring your gear in for a free visual inspection and a personalized quote.</p></div>
+<div class="svc"><span class="lab" style="color:var(--wood2)">Retail</span><h3>Gloves, goggles, beanies &amp; sleds</h3><p>Whatever you forgot to pack, plus local Red River regalia and gifts.</p></div></div></div></section>
+
+<section class="dark" id="rent"><div class="wrap"><div class="sec-h"><span class="lab">Plan your rental</span><h2 style="color:#fff">Pick your dates, build your party, pay once.</h2><p>A design sample of how online booking could work, using Wild Bill's real package names and posted rates.</p></div>
+<div class="book"><div class="panel">
+<h3><span class="step">1</span>Dates &amp; party</h3>
+<div class="row2"><label class="f">First day<input type="date" id="d1" value="2026-12-27"></label><label class="f">Last day<input type="date" id="d2" value="2026-12-29"></label><label class="f">Skiers / riders<select id="ppl"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></label></div>
+<h3><span class="step">2</span>Choose packages</h3>
+<div class="tabs"><button class="on" data-t="ski">Ski</button><button data-t="board">Snowboard</button><button data-t="extra">Extras</button></div>
+<div id="items"></div>
+<p class="sample" style="margin-top:12px">Posted rates are per day; multi-day rates apply for 2+ days. Rates are copied from wildbillsski.com/rates — confirm current-season pricing before launch.</p></div>
+<div class="panel cart"><h3><span class="step">3</span>Your rental</h3><div id="cart"></div>
+<div class="pay"><button class="wal ap" data-w="Apple Pay"><svg width="18" height="22" viewBox="0 0 18 22"><path fill="#fff" d="M14.9 11.6c0-2.4 2-3.5 2.1-3.6-1.1-1.700-2.900-1.900-3.500-1.900-1.500-.2-2.900.9-3.700.9s-1.900-.9-3.200-.8c-1.600 0-3.100 1-4 2.400-1.700 3-.4 7.400 1.200 9.800.8 1.200 1.800 2.500 3 2.400 1.200 0 1.700-.8 3.100-.8s1.900.8 3.200.8 2.100-1.200 2.900-2.300c.9-1.300 1.300-2.600 1.300-2.700 0 0-2.400-.9-2.400-3.700zM12.500 4.500c.7-.8 1.100-1.900 1-3-.9 0-2.100.6-2.800 1.400-.6.700-1.100 1.800-1 2.900 1.100.1 2.100-.5 2.800-1.300z"/></svg><span>Pay</span></button>
+<button class="wal gp"><svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M23 12.2c0-.8-.1-1.500-.2-2.200H12v4.200h6.200c-.3 1.400-1.100 2.600-2.300 3.400v2.800h3.700c2.200-2 3.400-5 3.400-8.200z"/><path fill="#34A853" d="M12 23.500c3.100 0 5.700-1 7.600-2.800l-3.700-2.800c-1 .7-2.300 1.100-3.900 1.100-3 0-5.500-2-6.400-4.800H1.800v2.900c1.900 3.700 5.700 6.400 10.200 6.400z"/><path fill="#FBBC05" d="M5.600 14.200c-.2-.7-.4-1.400-.4-2.200s.1-1.500.4-2.200V6.900H1.800C1 8.400.6 10.100.6 12s.4 3.600 1.200 5.100z"/><path fill="#EA4335" d="M12 5c1.700 0 3.200.6 4.400 1.700l3.300-3.300C17.700 1.600 15.100.5 12 .5 7.500.5 3.700 3.200 1.800 6.900l3.800 2.900C6.500 7 9 5 12 5z"/></svg><span>Pay</span></button>
+<div class="or">or pay with card</div>
+<button class="wal cd" data-w="Card">Pay with card</button>
+<div class="badges" aria-label="Accepted cards">
+<svg viewBox="0 0 60 38"><text x="30" y="26" text-anchor="middle" font-family="Arial" font-weight="900" font-style="italic" font-size="20" fill="#1a1f71">VISA</text></svg>
+<svg viewBox="0 0 60 38"><circle cx="23" cy="19" r="11" fill="#eb001b"/><circle cx="37" cy="19" r="11" fill="#f79e1b"/><path d="M30 10.100a11 11 0 0 1 0 17.800a11 11 0 0 1 0-17.800z" fill="#ff5f00"/></svg>
+<svg viewBox="0 0 60 38"><rect x="4" y="5" width="52" height="28" rx="3" fill="#016fd0"/><text x="30" y="24" text-anchor="middle" font-family="Arial" font-weight="800" font-size="12" fill="#fff">AMEX</text></svg></div></div>
+<div class="sample"><b>SAMPLE ONLY.</b> This is a design mockup of payment options. No payment is processed and no card details are collected. A real build would use the shop's payment processor (Apple Pay, Google Pay and major cards). Wild Bill's FAQ says reservation payments are taken at booking.</div></div></div></div></section>
+
+<section id="tune"><div class="wrap two"><div><span class="lab" style="color:var(--wood)">The back room</span><h2 style="font-size:clamp(34px,4.4vw,54px);margin:12px 0 14px">Tuned by people who ride.</h2><p>“The guys in the back at Wild Bill's take pride in every job.” Wintersteiger machines, certified technicians, free visual inspection.</p>
+<table class="tune"><tr><td>Quick tune <small style="color:#6a5f50">spot fix, edge dressing, machine wax</small></td><td>$45</td></tr><tr><td>Full tune <small style="color:#6a5f50">P-Tex, edges, wax</small></td><td>$75</td></tr><tr><td>Tip to tail <small style="color:#6a5f50">P-Tex, edges, handwax, bindings serviced</small></td><td>$100</td></tr><tr><td>Machine wax</td><td>$25</td></tr><tr><td>Bindings serviced</td><td>$65</td></tr></table><p style="font-size:14px;color:#6a5f50;margin-top:8px">Ski and snowboard pricing as posted on wildbillsski.com/repairs.</p></div>
+<img src="assets/ski_shop_img.jpg" alt="Technicians at the tuning machines"></div></section>
+
+<section class="dark" id="stay"><div class="wrap"><div class="sec-h"><span class="lab">Vacation rentals</span><h2 style="color:#fff">Sleep a half-block from the Platinum chair.</h2><p>Second-floor units overlooking the Face of the ski area — watch the torchlight parade and fireworks from your front door. Kitchens, flat-screen TVs, WiFi, small pets welcome by arrangement. Rates from $155–$225 per night as posted; room rates vary by season.</p></div>
+<div class="lodge-g"><img src="assets/lodge3.jpg" alt="Lodging bedroom"><img src="assets/lodge1.jpg" alt="Bunk beds"><img src="assets/lodge2.jpg" alt="Bedroom"><img src="assets/lodge4.jpg" alt="Bedroom"><img src="assets/lodge5.jpg" alt="Sitting area"></div>
+<div class="vr"><div class="u"><span class="pill">The Zia &amp; The Adobe</span><h3 style="margin-top:10px">Efficiency units</h3><p>Queen beds, sitting areas, full kitchens. Zia sleeps three, Adobe sleeps two. Posted rates $155–$225.</p><a class="btn b1" href="http://www.vrbo.com/338100" target="_blank" rel="noopener">Wild Bill’s VRBO listing #338100</a></div>
+<div class="u"><span class="pill">The Pueblo &amp; The Durango</span><h3 style="margin-top:10px">Two-bedroom units</h3><p>Two queen bedrooms and a full kitchen — right for a family of four or two couples. Posted rates $155–$225.</p><a class="btn b1" href="http://www.vrbo.com/445761" target="_blank" rel="noopener">Wild Bill’s VRBO listing #445761</a></div>
+<div class="u"><span class="pill">More availability</span><h3 style="margin-top:10px">Second VRBO listing</h3><p>Wild Bill's lodging page also links this listing. Or call for open dates, free-performance-package specials and pet deposit details.</p><a class="btn b1" href="http://www.vrbo.com/508752" target="_blank" rel="noopener">Wild Bill’s VRBO listing #508752</a></div></div>
+</div></section>
+
+<section class="kof" id="koffee"><div class="wrap two"><div><span class="lab">Same building</span><h2 style="font-size:clamp(34px,4.4vw,54px);margin:12px 0 16px">The Koffee House</h2><p style="font-size:19px">Red River's best little coffee spot. Espresso, lattes, classic drip, specialty drinks and organic teas by the cup or the pot, with fresh pastries, free internet, and the occasional impromptu live set on the guitars hanging from the wall.</p></div><img src="assets/koffee_cup-600x600.jpg" alt="Koffee House mug in the snow" style="max-height:420px;object-fit:cover"></div></section>
+
+<section id="summer" style="background:linear-gradient(90deg,rgba(246,239,226,.96) 45%,rgba(246,239,226,.5)),url(assets/summer_shop_banner.jpg) center/cover"><div class="wrap" style="max-width:760px;margin-left:max(24px,calc((100% - 1160px)/2))"><span class="lab" style="color:var(--wood)">Every May</span><h2 style="font-size:clamp(34px,4.4vw,54px);margin:12px 0 16px">The shop flips to summer.</h2><p style="font-size:19px">Hand-crafted jewelry, Red River regalia you won't find anywhere else, toys for the wee adventurer, New Mexico fishing licenses, flies and gear for the river.</p></div></section>
+
+<footer id="visit"><div class="wrap"><div><img src="assets/logo.png" alt="Wild Bill's" width="80"><p style="margin-top:12px">Wild Bill's Ski &amp; Snowboard<br>325 West Main Street · PO Box 188<br>Red River, NM 87558</p></div><div><h4>Hours</h4><p>8 am – 6 pm MST<br>Open 7 days, including holidays<br>Returns by 5:30 pm</p></div><div><h4>Contact</h4><p><a href="tel:+15757542428">575-754-2428</a><br><a href="mailto:info@wildbillsski.com">info@wildbillsski.com</a></p></div></div></footer>
+<div class="callbar"><a href="tel:+15757542428">Call</a><a href="#rent">Reserve</a></div>
+<div class="tag">Sample design by Vortac</div><div class="toast" id="toast"></div>
+<script>
+const SK=[["Demo","Best skis & bindings, 4-buckle boot, graphite poles",65,65],["High Performance","Newest skis & boots, graphite poles",39,38],["Performance","All-mountain ski, boots & poles",29,28],["Snowblades","Adults only, with boots",29,28],["Junior (12 & under)","Skis, boots & poles",19,18],["Child (6 & under)","Skis & boots",10,10]];
+const BD=[["Performance Snowboard","Board, bindings & boots",45,44],["Basic Snowboard","Board, bindings & boots",35,34],["Junior Snowboard","12 & under",25,24]];
+const EX=[["Ski bibs","per day",10,10],["Helmet","per day",10,10],["Wrist guards","flat",5,5,1],["Boots only","as listed",13,13,1]];
+const S={ski:SK,board:BD,extra:EX},Q={};let tab='ski';
+const $=s=>document.querySelector(s);
+function days(){const a=new Date($('#d1').value),b=new Date($('#d2').value);const n=Math.round((b-a)/864e5)+1;return n>0?n:1}
+function render(){$('#items').innerHTML=S[tab].map((p,i)=>{const k=tab+i;return `<div class="item"><div><b>${p[0]}</b><small>${p[1]}</small></div><div class="pr">$${p[2]}<small> /${p[4]?'rental':'day'}${p[3]!=p[2]?' · $'+p[3]+' multi-day':''}</small></div><div class="q"><button data-k="${k}" data-d="-1" aria-label="less">−</button><span>${Q[k]||0}</span><button data-k="${k}" data-d="1" aria-label="more">+</button></div></div>`}).join('');cart()}
+function cart(){const n=days();let tot=0,h='';for(const t in S)S[t].forEach((p,i)=>{const q=Q[t+i]||0;if(!q)return;const r=p[4]?p[2]:(n>1?p[3]:p[2])*n;tot+=r*q;h+=`<div class="ln"><span>${q} × ${p[0]}${p[4]?'':' · '+n+' day'+(n>1?'s':'')}</span><span>$${r*q}</span></div>`});
+$('#cart').innerHTML=`<div class="ln" style="color:#6a5f50"><span>${$('#d1').value} → ${$('#d2').value} · ${$('#ppl').value} in party</span><span></span></div>`+(h||'<div class="ln" style="color:#6a5f50"><span>Add packages to build your rental.</span></div>')+`<div class="tot"><span>Sample total</span><span>$${tot}</span></div><div class="note">Taxes and optional damage waiver ($3/day per Wild Bill's policies) are not included in this sample.</div>`}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.t){tab=b.dataset.t;document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));render()}else if(b.dataset.k){Q[b.dataset.k]=Math.max(0,(Q[b.dataset.k]||0)+ +b.dataset.d);render()}else if(b.classList.contains('wal')){const t=$('#toast');t.textContent='Sample design — no payment is processed.';t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2600)}});
+['#d1','#d2','#ppl'].forEach(s=>$(s).addEventListener('change',cart));
+Q.ski2=2;Q.ski4=1;Q.extra1=2;render();
+</script></body></html>
