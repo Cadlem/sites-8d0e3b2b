@@ -1,0 +1,1073 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>COKAIN concept mock (sample data)</title>
+<style>.page-title{display:none;font-size:26px;margin:0 0 14px;letter-spacing:-.01em}
+:root{
+  --font: system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono: ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --fs-xs:13px;--fs-sm:14px;--fs-md:16px;--fs-lg:18px;--fs-xl:22px;--fs-2xl:28px;--fs-3xl:36px;
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:22px;
+  --tap:44px;
+  --side:248px;
+}
+[data-theme="dark"]{
+  --bg:#0d1219;--bg2:#111823;--surface:#161e2a;--surface2:#1d2736;--surface3:#26324400;
+  --line:#2a3546;--line2:#354257;
+  --text:#eef2f7;--muted:#a9b4c4;--faint:#8592a6;
+  --accent:#ffc61a;--accent-ink:#1b1400;--accent-soft:rgba(255,198,26,.14);--odds:#ffcf3d;
+  --live:#ff5a67;--live-soft:rgba(255,90,103,.16);
+  --win:#3fd17f;--win-soft:rgba(63,209,127,.15);
+  --loss:#ff7a7a;--loss-soft:rgba(255,122,122,.14);
+  --pend:#9db8ff;--pend-soft:rgba(157,184,255,.14);
+  --push:#c9b6ff;--push-soft:rgba(201,182,255,.14);
+  --shadow:0 1px 0 rgba(255,255,255,.03) inset,0 8px 24px rgba(0,0,0,.35);
+  --skel:#1f2938;--skel2:#2a3647;
+  --banner:#ffc61a;--banner-ink:#1b1400;
+  color-scheme:dark;
+}
+[data-theme="light"]{
+  --bg:#f3f5f8;--bg2:#e9edf2;--surface:#ffffff;--surface2:#f5f7fa;
+  --line:#dbe1e9;--line2:#c8d0db;
+  --text:#121821;--muted:#4b5767;--faint:#5f6b7b;
+  --accent:#ffc61a;--accent-ink:#1b1400;--accent-soft:#fff3cc;--odds:#7a5200;
+  --live:#c4142d;--live-soft:#fde7ea;
+  --win:#0b7a3b;--win-soft:#e3f6eb;
+  --loss:#b42318;--loss-soft:#fdecea;
+  --pend:#2550b8;--pend-soft:#e7eefc;
+  --push:#5b3fb5;--push-soft:#efeafc;
+  --shadow:0 1px 2px rgba(16,24,40,.06),0 6px 18px rgba(16,24,40,.06);
+  --skel:#e6eaf0;--skel2:#f2f4f7;
+  --banner:#121821;--banner-ink:#ffc61a;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:var(--font);font-size:var(--fs-md);line-height:1.5;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.num{font-variant-numeric:tabular-nums}
+
+/* concept banner */
+.concept{position:sticky;top:0;z-index:60;background:var(--banner);color:var(--banner-ink);font-size:var(--fs-xs);font-weight:600;text-align:center;padding:6px 12px;letter-spacing:.01em}
+.concept b{font-weight:800;letter-spacing:.08em}
+
+/* wordmark */
+.wordmark{font-weight:900;letter-spacing:.22em;font-size:20px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.wordmark .dot{width:10px;height:10px;border-radius:3px;background:var(--accent);transform:rotate(45deg)}
+.ph-tag{font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--faint);border:1px solid var(--line2);border-radius:4px;padding:0 4px;text-transform:uppercase}
+
+/* app shell */
+.app{display:grid;grid-template-columns:var(--side) 1fr;min-height:calc(100vh - 30px)}
+.side{position:sticky;top:30px;height:calc(100vh - 30px);background:var(--bg2);border-right:1px solid var(--line);padding:18px 14px;display:flex;flex-direction:column;gap:6px;overflow:auto}
+.side .wordmark{padding:4px 10px 14px}
+.nav-h{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);font-weight:700;padding:14px 12px 4px}
+.nav a{display:flex;align-items:center;gap:12px;min-height:var(--tap);padding:0 12px;border-radius:10px;text-decoration:none;color:var(--muted);font-weight:600;font-size:15px}
+.nav a:hover{background:var(--surface);color:var(--text)}
+.nav a[aria-current="page"]{background:var(--accent-soft);color:var(--text);box-shadow:inset 3px 0 0 var(--accent)}
+.nav a .ic{width:20px;height:20px;flex:none}
+.nav a .badge{margin-left:auto}
+.side-foot{margin-top:auto;padding:12px;font-size:var(--fs-xs);color:var(--faint);border-top:1px solid var(--line)}
+.side-foot a{color:var(--muted)}
+
+.main{min-width:0;display:flex;flex-direction:column}
+.topbar{position:sticky;top:30px;z-index:40;display:flex;align-items:center;gap:12px;padding:12px 28px;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.topbar .m-only{display:none}
+.topbar h1{font-size:var(--fs-xl);margin:0;font-weight:750;letter-spacing:-.01em}
+.spacer{flex:1}
+.content{padding:24px 28px 64px;max-width:1160px;width:100%}
+
+.chip-bal{display:inline-flex;align-items:center;gap:10px;min-height:var(--tap);padding:0 6px 0 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-weight:700}
+.chip-bal small{color:var(--muted);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.icon-btn{width:var(--tap);height:var(--tap);display:inline-grid;place-items:center;border-radius:999px;border:1px solid var(--line);background:var(--surface);cursor:pointer}
+.icon-btn:hover{border-color:var(--line2)}
+.icon-btn svg{width:20px;height:20px}
+.chip-bal .icon-btn{width:34px;height:34px;border:0;background:var(--surface2)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:var(--tap);padding:0 18px;border-radius:12px;border:1px solid var(--line2);background:var(--surface);font-weight:700;cursor:pointer;text-decoration:none;font-size:15px}
+.btn:hover{border-color:var(--faint)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent}
+.btn.primary:hover{filter:brightness(1.05)}
+.btn.ghost{background:transparent}
+.btn.block{width:100%}
+.btn.lg{min-height:52px;font-size:var(--fs-lg);border-radius:14px}
+.badge{display:inline-flex;align-items:center;min-width:22px;height:22px;padding:0 7px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:12px;font-weight:800;justify-content:center}
+
+/* cards & generic */
+.grid{display:grid;gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow)}
+.pad{padding:18px 20px}
+.h2{font-size:var(--fs-lg);font-weight:750;margin:0}
+.h-row{display:flex;align-items:center;gap:12px;margin:28px 0 12px}
+.h-row:first-child{margin-top:0}
+.h-row .link{margin-left:auto;font-weight:700;font-size:var(--fs-sm);color:var(--odds);text-decoration:none;min-height:var(--tap);display:inline-flex;align-items:center}
+.muted{color:var(--muted)}
+.faint{color:var(--faint)}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700}
+.sample{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent);border-radius:4px;padding:1px 6px;vertical-align:middle}
+.pos{color:var(--win)} .neg{color:var(--loss)}
+.odds{color:var(--odds);font-weight:800;font-variant-numeric:tabular-nums}
+
+/* status chips */
+.st{display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.st.won{color:var(--win);background:var(--win-soft)}
+.st.lost{color:var(--loss);background:var(--loss-soft)}
+.st.pend{color:var(--pend);background:var(--pend-soft)}
+.st.pend::before{background:transparent;border:2px solid currentColor;width:6px;height:6px}
+.st.live{color:var(--live);background:var(--live-soft)}
+.st.live::before{animation:pulse 1.4s infinite}
+.st.push{color:var(--push);background:var(--push-soft)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+.pill-row{display:flex;gap:8px;flex-wrap:wrap}
+.pill{min-height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line2);background:var(--surface);font-weight:700;font-size:var(--fs-sm);cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.pill[aria-pressed="true"],.pill[aria-selected="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.pill .n{font-size:12px;opacity:.75}
+.seg{display:inline-flex;padding:4px;border-radius:12px;background:var(--surface2);border:1px solid var(--line);gap:2px}
+.seg button{min-height:38px;padding:0 14px;border-radius:9px;border:0;background:transparent;font-weight:700;font-size:var(--fs-sm);cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,.25)}
+
+/* screens */
+.screen{display:none}
+.screen.on{display:block}
+.skel{display:none}
+.loading .skel{display:block}
+.loading .real{display:none}
+.sk{background:linear-gradient(90deg,var(--skel) 25%,var(--skel2) 37%,var(--skel) 63%);background-size:400% 100%;animation:sh 1.3s ease infinite;border-radius:8px}
+@keyframes sh{0%{background-position:100% 50%}100%{background-position:0 50%}}
+.sk-card{padding:18px 20px;margin-bottom:14px}
+.sk-line{height:14px;margin:10px 0}
+
+/* sign-in */
+.signin{min-height:calc(100vh - 30px);display:grid;grid-template-columns:1.1fr 1fr}
+.signin-art{position:relative;overflow:hidden;background:radial-gradient(1200px 600px at -10% 110%,rgba(255,198,26,.22),transparent 60%),radial-gradient(800px 500px at 110% -10%,rgba(80,120,255,.18),transparent 60%),#0b1017;color:#eef2f7;padding:48px;display:flex;flex-direction:column;justify-content:space-between}
+.signin-art .wordmark{font-size:28px;color:#fff}
+.signin-art h2{font-size:44px;line-height:1.08;margin:0 0 14px;letter-spacing:-.02em;max-width:12ch}
+.signin-art p{color:#b9c3d2;max-width:44ch;font-size:var(--fs-lg);margin:0}
+.signin-art .ticks{display:grid;gap:10px;margin-top:28px;color:#d5dce6}
+.signin-art .ticks div{display:flex;gap:10px;align-items:center}
+.signin-art .ticks i{width:22px;height:22px;border-radius:50%;background:rgba(255,198,26,.18);color:#ffc61a;display:grid;place-items:center;font-style:normal;font-weight:900;font-size:13px}
+.signin-form{display:grid;place-items:center;padding:40px 24px;background:var(--bg)}
+.form{width:100%;max-width:400px}
+.form h1{font-size:var(--fs-2xl);margin:0 0 6px;letter-spacing:-.01em}
+.field{display:grid;gap:6px;margin:18px 0}
+.field label{font-weight:700;font-size:var(--fs-sm)}
+.field .hint{font-size:var(--fs-xs);color:var(--muted)}
+.input{min-height:52px;width:100%;padding:0 16px;border-radius:12px;border:1.5px solid var(--line2);background:var(--surface);font-size:var(--fs-md)}
+.input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.input-wrap{position:relative}
+.input-wrap .reveal{position:absolute;right:4px;top:4px;height:44px;min-width:64px;border:0;background:transparent;font-weight:700;color:var(--odds);cursor:pointer;border-radius:10px}
+.check{display:flex;align-items:center;gap:10px;min-height:var(--tap);font-size:var(--fs-sm);cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--accent)}
+.form .foot{margin-top:22px;font-size:var(--fs-sm);color:var(--muted);text-align:center}
+.form .foot a{color:var(--odds);font-weight:700}
+
+/* home */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
+.bal-card{padding:22px;background:linear-gradient(135deg,var(--surface) 0%,var(--surface2) 100%);position:relative;overflow:hidden}
+.bal-card::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,var(--accent-soft),transparent 70%)}
+.bal-big{font-size:var(--fs-3xl);font-weight:800;letter-spacing:-.02em;margin:4px 0 14px}
+.stats3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.stat b{display:block;font-size:var(--fs-lg)}
+.week{padding:20px}
+.bars{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;height:110px;margin-top:14px;position:relative}
+.bars::before{content:"";position:absolute;left:0;right:0;top:55px;border-top:1px dashed var(--line2)}
+.bar{display:flex;flex-direction:column;align-items:center;justify-content:center;height:110px;position:relative}
+.bar i{position:absolute;left:22%;right:22%;border-radius:5px}
+.bar i.up{bottom:55px;background:var(--win)}
+.bar i.dn{top:55px;background:var(--loss)}
+.bar i.zero{top:53px;height:4px;background:var(--line2)}
+.bar-l{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;text-align:center;font-size:12px;color:var(--muted);font-weight:700;margin-top:6px}
+.bar-l .today{color:var(--text)}
+.qa{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.qa button{min-height:88px;border-radius:14px;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;padding:14px;text-align:left;font-weight:750}
+.qa button:hover{border-color:var(--accent)}
+.qa button span{font-size:12px;color:var(--muted);font-weight:600}
+.qa .qi{width:28px;height:28px;border-radius:8px;background:var(--accent-soft);color:var(--odds);display:grid;place-items:center;font-weight:900;font-size:13px}
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:thin}
+.game{flex:0 0 280px;scroll-snap-align:start;padding:14px 16px}
+.game .teams{display:grid;gap:8px;margin:10px 0}
+.game .t{display:flex;align-items:center;gap:10px;font-weight:700}
+.game .t .sc{margin-left:auto;font-size:var(--fs-xl);font-weight:800}
+.crest{width:28px;height:28px;border-radius:8px;display:grid;place-items:center;font-size:11px;font-weight:900;color:#fff;flex:none}
+.game .mk{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.mkb{min-height:var(--tap);border-radius:10px;border:1px solid var(--line);background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;line-height:1.15}
+.mkb small{font-size:11px;color:var(--muted);font-weight:700}
+.mkb:hover{border-color:var(--accent)}
+.mkb.sel{border-color:var(--accent);background:var(--accent-soft)}
+
+/* open bets */
+.summary{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:16px}
+.summary .tot{font-size:var(--fs-lg)}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:18px}
+.bet{margin-bottom:16px;overflow:hidden}
+.bet-h{display:flex;align-items:flex-start;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.btype{display:inline-flex;align-items:center;gap:8px;font-weight:850;letter-spacing:.06em;text-transform:uppercase;font-size:var(--fs-sm)}
+.btype .tag{background:var(--accent);color:var(--accent-ink);border-radius:6px;padding:2px 8px}
+.bet-h .meta{font-size:var(--fs-xs);color:var(--muted);margin-top:4px}
+.money{margin-left:auto;text-align:right;white-space:nowrap}
+.money .lbl{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.money .v{font-size:var(--fs-lg);font-weight:800}
+.money .arrow{color:var(--faint);margin:0 6px}
+.prog{display:flex;gap:4px;padding:0 20px;margin-top:12px}
+.prog i{flex:1;height:6px;border-radius:3px;background:var(--line2)}
+.prog i.won{background:var(--win)} .prog i.lost{background:var(--loss)} .prog i.live{background:var(--live)} .prog i.pend{background:var(--pend);opacity:.5}
+.prog-l{padding:6px 20px 0;font-size:var(--fs-xs);color:var(--muted);font-weight:600}
+.legs{list-style:none;margin:0;padding:8px 0}
+.leg{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:12px 20px;position:relative}
+.leg + .leg{border-top:1px dashed var(--line)}
+.leg .n{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line2);display:grid;place-items:center;font-size:12px;font-weight:800;color:var(--muted)}
+.leg .sel{font-weight:750}
+.leg .gm{font-size:var(--fs-xs);color:var(--muted);margin-top:2px}
+.leg .right{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.score{display:inline-flex;align-items:center;gap:8px;font-size:var(--fs-sm);font-weight:800;background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:3px 8px}
+.score .clock{color:var(--live);font-weight:800;font-size:12px}
+.hide-scores .score{display:none}
+.teased{font-size:var(--fs-xs);color:var(--muted)}
+.teased s{color:var(--faint)}
+.teased b{color:var(--odds)}
+.note{margin:0 20px 16px;padding:10px 12px;border-radius:10px;background:var(--loss-soft);color:var(--loss);font-size:var(--fs-sm);font-weight:700}
+.bet-f{display:flex;gap:10px;padding:12px 20px;border-top:1px solid var(--line);background:var(--bg2);font-size:var(--fs-xs);color:var(--muted);align-items:center;flex-wrap:wrap}
+.bet-f .ref{font-family:var(--mono)}
+
+/* history */
+.week-sel{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.week-sel select{min-height:var(--tap);border-radius:12px;border:1px solid var(--line2);background:var(--surface);padding:0 40px 0 14px;font-weight:700;appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 19px,calc(100% - 14px) 19px;background-size:6px 6px;background-repeat:no-repeat}
+.totals{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.totals .card{padding:14px 16px}
+.totals b{display:block;font-size:var(--fs-xl);font-weight:800;margin-top:2px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-bottom:18px}
+.day{min-height:56px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--muted)}
+.day b{font-size:var(--fs-sm);color:var(--text)}
+.day[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.day:disabled{opacity:.55;cursor:default}
+table.hist{width:100%;border-collapse:separate;border-spacing:0;font-size:var(--fs-sm)}
+.hist th{text-align:left;font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:800;padding:12px 14px;border-bottom:1px solid var(--line);background:var(--bg2);position:sticky;top:0}
+.hist th:first-child{border-top-left-radius:var(--r-lg)} .hist th:last-child{border-top-right-radius:var(--r-lg)}
+.hist td{padding:14px;border-bottom:1px solid var(--line);vertical-align:top}
+.hist tr:last-child td{border-bottom:0}
+.hist .r{text-align:right;white-space:nowrap}
+.hist .lg{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin-top:8px;align-items:center}
+.hist .lg .st{height:22px;font-size:11px;padding:0 8px}
+.hist .lg .tx{font-size:var(--fs-sm)}
+.hist .bt{font-weight:800;text-transform:uppercase;letter-spacing:.05em;font-size:12px}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+
+/* casino */
+.cas-top{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+.search{position:relative;flex:1;min-width:220px;max-width:420px}
+.search input{padding-left:44px;min-height:var(--tap)}
+.search svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:18px;overflow-x:auto;scrollbar-width:none}
+.tabs button{min-height:var(--tap);padding:0 16px;border:0;background:transparent;font-weight:750;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--text);border-bottom-color:var(--accent)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.tile{position:relative;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.tile .art{aspect-ratio:4/3;display:grid;place-items:center;color:rgba(255,255,255,.92);font-weight:900;font-size:26px;letter-spacing:.04em;text-shadow:0 2px 8px rgba(0,0,0,.35)}
+.tile .info{padding:10px 12px;display:flex;justify-content:space-between;gap:8px;align-items:center}
+.tile .info b{font-size:var(--fs-sm)} .tile .info small{display:block;font-size:12px;color:var(--muted)}
+.fav{width:var(--tap);height:var(--tap);border-radius:50%;border:0;background:rgba(0,0,0,.45);position:absolute;top:6px;right:6px;cursor:pointer;display:grid;place-items:center;color:#fff}
+.fav[aria-pressed="true"]{color:#ffc61a}
+.fav svg{width:20px;height:20px}
+.tile .prov{position:absolute;left:8px;top:8px;font-size:11px;font-weight:800;background:rgba(0,0,0,.5);color:#fff;border-radius:6px;padding:2px 7px;letter-spacing:.04em}
+
+/* chat */
+.chat{display:flex;flex-direction:column;height:calc(100vh - 30px - 69px - 48px);min-height:480px;max-width:760px}
+.chat-h{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line)}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--accent-soft);color:var(--odds);display:grid;place-items:center;font-weight:900}
+.thread{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+.daysep{align-self:center;font-size:12px;color:var(--muted);font-weight:700;background:var(--bg2);border-radius:999px;padding:3px 12px;margin:6px 0}
+.msg{max-width:78%;padding:10px 14px;border-radius:18px;font-size:15px}
+.msg .t{display:block;font-size:12px;color:var(--muted);margin-top:4px}
+.msg.them{background:var(--surface2);border-bottom-left-radius:6px;align-self:flex-start}
+.msg.me{background:var(--accent);color:var(--accent-ink);border-bottom-right-radius:6px;align-self:flex-end}
+.msg.me .t{color:rgba(27,20,0,.72)}
+.quick{display:flex;gap:8px;padding:0 18px 10px;overflow-x:auto}
+.composer{display:flex;gap:10px;padding:12px 14px;border-top:1px solid var(--line);align-items:flex-end}
+.composer .field{margin:0;flex:1}
+
+/* live */
+.live-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.live-grid .game{flex:none}
+
+/* bet slip drawer */
+.scrim{position:fixed;inset:0;background:rgba(5,8,12,.55);z-index:80;opacity:0;pointer-events:none;transition:opacity .2s}
+.drawer{position:fixed;z-index:90;top:0;right:0;bottom:0;width:440px;max-width:100%;background:var(--surface);border-left:1px solid var(--line);transform:translateX(105%);transition:transform .25s ease;display:flex;flex-direction:column;box-shadow:-20px 0 50px rgba(0,0,0,.35)}
+.slip-open .scrim{opacity:1;pointer-events:auto}
+.slip-open .drawer{transform:none}
+.dr-h{display:flex;align-items:center;gap:10px;padding:14px 16px 14px 20px;border-bottom:1px solid var(--line)}
+.dr-b{flex:1;overflow:auto;padding:16px 20px}
+.dr-f{border-top:1px solid var(--line);padding:14px 20px 18px;background:var(--bg2)}
+.typebar{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.typebar .pill{min-height:var(--tap)}
+.type-title{margin:16px 0 4px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.legend{border:1px solid var(--line);border-radius:12px;background:var(--bg2);margin:12px 0;font-size:var(--fs-sm)}
+.legend summary{min-height:var(--tap);display:flex;align-items:center;gap:8px;padding:0 14px;cursor:pointer;font-weight:700}
+.legend summary code{font-family:var(--mono);font-size:12px;background:var(--surface);border:1px solid var(--line);padding:2px 6px;border-radius:6px;color:var(--muted)}
+.legend .body{padding:0 14px 14px}
+.legend dl{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;margin:8px 0 0}
+.legend dt{font-family:var(--mono);font-weight:800;color:var(--odds)}
+.legend dd{margin:0;color:var(--muted)}
+.slip-leg{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0;display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
+.slip-leg .x{width:var(--tap);height:var(--tap);border:0;background:transparent;border-radius:50%;cursor:pointer;color:var(--muted);grid-row:span 2}
+.slip-leg .sel{font-weight:750}
+.pts{display:flex;gap:8px;margin:8px 0}
+.stake{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.stake .field{margin:0}
+.money-in{position:relative}
+.money-in span{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:700}
+.money-in input{padding-left:30px;font-weight:800;font-variant-numeric:tabular-nums}
+.sum-line{display:flex;justify-content:space-between;font-size:var(--fs-sm);color:var(--muted);margin:10px 0 12px}
+.sum-line b{color:var(--text)}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(140%);background:var(--text);color:var(--bg);padding:12px 18px;border-radius:12px;font-weight:700;z-index:120;transition:transform .25s;max-width:92vw}
+.toast.show{transform:translateX(-50%)}
+
+/* before/after */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.ba h3{margin:0 0 10px;font-size:var(--fs-md);display:flex;gap:8px;align-items:center}
+.lbl-before{background:var(--loss-soft);color:var(--loss)} .lbl-after{background:var(--win-soft);color:var(--win)}
+.lbl-before,.lbl-after{font-size:11px;font-weight:900;letter-spacing:.1em;padding:3px 8px;border-radius:6px}
+.shot{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.shot img{display:block;width:100%;height:auto}
+.pin{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:#ff2d55;color:#fff;font-weight:900;font-size:13px;display:grid;place-items:center;box-shadow:0 0 0 3px #fff,0 4px 12px rgba(0,0,0,.4)}
+.pin.g{background:#12a150}
+.notes{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px;font-size:var(--fs-sm)}
+.notes li{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start}
+.notes .k{width:24px;height:24px;border-radius:50%;background:#ff2d55;color:#fff;font-weight:900;font-size:12px;display:grid;place-items:center}
+.notes.g .k{background:#12a150}
+.phone-pair{display:grid;grid-template-columns:1fr;gap:10px}
+.after-box{border:1px dashed var(--line2);border-radius:14px;padding:14px;background:var(--bg)}
+.ba-sec{margin-bottom:36px}
+
+/* bottom tabs (phone) */
+.tabbar{display:none}
+.fab{display:none}
+
+@media (max-width:1100px){.qa{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:899px){
+  .app{display:block}
+  .side{display:none}
+  .topbar{padding:10px 16px;gap:8px}
+  .topbar .m-only{display:inline-flex}
+  .topbar .d-only{display:none}
+  .topbar h1{display:none}
+  .content{padding:16px 16px 120px}
+  .hero{grid-template-columns:1fr}
+  .stats3{grid-template-columns:repeat(3,1fr);gap:8px}
+  .stat{padding:10px}
+  .stat b{font-size:var(--fs-md)}
+  .bal-big{font-size:var(--fs-2xl)}
+  .qa{grid-template-columns:repeat(3,1fr);gap:8px}
+  .qa button{min-height:76px;padding:12px}
+  .page-title{display:block!important}
+  .tabbar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:50;background:color-mix(in srgb,var(--bg2) 94%,transparent);backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:4px 4px calc(4px + env(safe-area-inset-bottom))}
+  .tabbar a{min-height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-decoration:none;font-size:12px;font-weight:700;color:var(--muted);border-radius:12px;position:relative}
+  .tabbar a svg{width:24px;height:24px}
+  .tabbar a[aria-current="page"]{color:var(--text)}
+  .tabbar a[aria-current="page"]::before{content:"";position:absolute;top:2px;width:32px;height:3px;border-radius:2px;background:var(--accent)}
+  .tabbar .badge{position:absolute;top:4px;left:calc(50% + 6px);height:18px;min-width:18px;font-size:11px;padding:0 5px}
+  .fab{display:flex;position:fixed;right:16px;bottom:84px;z-index:45;box-shadow:0 10px 26px rgba(0,0,0,.35)}
+  .signin{grid-template-columns:1fr;min-height:auto}
+  .signin-art{padding:28px 20px 24px}
+  .signin-art h2{font-size:28px}
+  .signin-art p{font-size:var(--fs-md)}
+  .signin-art .ticks{display:none}
+  .signin-art .wordmark{font-size:22px;margin-bottom:22px}
+  .signin-form{padding:24px 20px 40px;place-items:start center}
+  .bet-h{flex-wrap:wrap;padding:14px 16px}
+  .money{margin-left:0;width:100%;text-align:left;display:flex;gap:18px;padding-top:6px}
+  .leg{grid-template-columns:28px 1fr;padding:12px 16px}
+  .leg .right{grid-column:2;flex-direction:row;align-items:center;flex-wrap:wrap;justify-content:flex-start}
+  .prog,.prog-l{padding-left:16px;padding-right:16px}
+  .bet-f{padding:12px 16px}
+  .totals{grid-template-columns:repeat(2,1fr);gap:8px}
+  .days{gap:4px}
+  .day{min-height:52px;font-size:11px;border-radius:10px}
+  table.hist,.hist tbody,.hist tr,.hist td{display:block;width:100%}
+  .hist thead{display:none}
+  .hist tr{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);margin-bottom:12px;padding:6px 0;box-shadow:var(--shadow)}
+  .hist-wrap{background:transparent!important;border:0!important;box-shadow:none!important}
+  .hist td{border:0;padding:6px 16px;display:flex;justify-content:space-between;gap:12px}
+  .hist td::before{content:attr(data-l);font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:800;flex:none;padding-top:2px}
+  .hist td.desc{display:block}
+  .hist td.desc::before{display:block;margin-bottom:4px}
+  .hist .r{text-align:right}
+  .hist td.res{order:-1}
+  .tiles{grid-template-columns:repeat(2,1fr);gap:10px}
+  .tile .art{font-size:20px}
+  .drawer{top:auto;left:0;width:100%;max-height:90vh;border-left:0;border-top:1px solid var(--line);border-radius:22px 22px 0 0;transform:translateY(105%)}
+  .dr-h::before{content:"";position:absolute;left:50%;top:6px;width:40px;height:4px;margin-left:-20px;border-radius:2px;background:var(--line2)}
+  .dr-h{position:relative;padding-top:18px}
+  .chat{height:calc(100vh - 30px - 65px - 140px);min-height:420px}
+  .msg{max-width:86%}
+  .ba{grid-template-columns:1fr}
+  .game{flex-basis:260px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (max-width:899px){
+  .topbar .wordmark{font-size:17px;letter-spacing:.16em}
+  .chip-bal{padding-left:12px;gap:6px}
+  .chip-bal small{display:none}
+  .topbar{min-width:0}
+}
+.money{display:flex;align-items:flex-end;gap:4px}
+.money .arrow{padding-bottom:4px}
+.prog i.live{background:repeating-linear-gradient(45deg,var(--live) 0 6px,transparent 6px 10px);border:1px solid var(--live)}
+.st.lost::before{content:"✕";background:none;width:auto;height:auto;font-size:11px;line-height:1}
+.st.won::before{content:"✓";background:none;width:auto;height:auto;font-size:12px;line-height:1}
+.toast{visibility:hidden}.toast.show{visibility:visible}
+.drawer{visibility:hidden;transition:transform .25s ease,visibility 0s .25s}
+.slip-open .drawer{visibility:visible;transition:transform .25s ease}
+.app{background:linear-gradient(to right,var(--bg2) calc(var(--side) - 1px),var(--line) calc(var(--side) - 1px),var(--line) var(--side),transparent var(--side))}
+.side{border-right:0}
+.concept .short{display:none}
+@media (max-width:899px){.app{background:none}.concept .long{display:none}.concept .short{display:inline}}
+.typebar .pill{white-space:nowrap;flex:none}
+.dr-h h2{white-space:nowrap}
+.week-sel{flex-wrap:nowrap}
+.week-sel select{min-width:0;flex:0 1 auto;text-overflow:ellipsis}
+.day b{white-space:nowrap}
+@media (max-width:899px){
+  .week-sel select{flex:1}
+  .week-sel .sample{display:none}
+  .day .dn{display:none}
+  .day b{font-size:11px}
+  .dr-h .sample{display:none}
+  .dr-h{gap:6px;padding-left:16px}
+  .dr-h .seg button{padding:0 10px}
+  .dr-b,.dr-f{padding-left:16px;padding-right:16px}
+}
+.legend summary{flex-wrap:wrap;padding:10px 14px;row-gap:4px}
+.legend summary code{white-space:nowrap}
+.ba{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.ba.stack{grid-template-columns:minmax(0,1fr)}
+.shots2{display:grid;grid-template-columns:1.6fr 1fr;gap:10px;align-items:start}
+.shots2 .shot{margin-top:0!important}
+.notes li{display:flex;gap:10px}
+.notes .k{flex:none}
+.ba.stack .notes{grid-template-columns:1fr 1fr;column-gap:24px}
+@media (max-width:899px){.ba{grid-template-columns:minmax(0,1fr)}.shots2{grid-template-columns:1fr}.ba.stack .notes{grid-template-columns:1fr}}
+.quick .pill{white-space:nowrap;flex:none}
+</style>
+</head>
+<body>
+<div class="concept" role="note"><b>CONCEPT</b> <span class="long">· Concept / demo only · Redesign mock with <u>sample data</u> · No real wagering · Not the live site · “COKAIN” is a placeholder wordmark</span><span class="short">· concept / demo only · sample data · no real wagering · placeholder wordmark</span></div>
+
+<!-- SIGN IN (no app chrome) -->
+<section class="screen" id="s-signin" data-title="Sign in">
+  <div class="signin">
+    <div class="signin-art">
+      <div>
+        <span class="wordmark"><span class="dot"></span>COKAIN</span> <span class="ph-tag" style="color:#b9c3d2;border-color:#3a475b">placeholder</span>
+      </div>
+      <div>
+        <h2>Your bets, clear at a glance.</h2>
+        <p>Open bets, live scores and your weekly figures — readable on any phone.</p>
+        <div class="ticks">
+          <div><i>✓</i>Every bet shows risk and to-win in dollars</div>
+          <div><i>✓</i>Parlay legs marked Won · Lost · Live · Pending</div>
+          <div><i>✓</i>Pinch-zoom allowed, 44px tap targets, dark &amp; light</div>
+        </div>
+      </div>
+      <div style="font-size:13px;color:#8592a6">Concept mock · sample only</div>
+    </div>
+    <div class="signin-form">
+      <form class="form" onsubmit="event.preventDefault();go('home')">
+        <h1>Sign in</h1>
+        <p class="muted" style="margin:0">Use the account ID your agent gave you.</p>
+        <div class="field">
+          <label for="f-user">Account ID</label>
+          <input id="f-user" class="input" autocomplete="username" placeholder="e.g. SAMPLE123" value="SAMPLE123">
+        </div>
+        <div class="field">
+          <label for="f-pass">Password</label>
+          <div class="input-wrap">
+            <input id="f-pass" class="input" type="password" autocomplete="current-password" value="samplepass">
+            <button type="button" class="reveal" aria-controls="f-pass" onclick="const p=document.getElementById('f-pass');const s=p.type==='password';p.type=s?'text':'password';this.textContent=s?'Hide':'Show'">Show</button>
+          </div>
+          <span class="hint">Passwords are case-sensitive.</span>
+        </div>
+        <label class="check"><input type="checkbox" checked> Keep me signed in on this device</label>
+        <button class="btn primary lg block" type="submit" style="margin-top:10px">Sign in</button>
+        <div class="foot">Forgot your password? <a href="#chat" onclick="go('chat');return false">Message your agent</a></div>
+        <div class="foot faint" style="margin-top:8px">Concept: no credentials are sent anywhere.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="app" id="app">
+  <aside class="side" aria-label="Main navigation">
+    <a class="wordmark" href="#home"><span class="dot"></span>COKAIN <span class="ph-tag">placeholder</span></a>
+    <nav class="nav" id="sidenav">
+      <a href="#home" data-r="home"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</a>
+      <a href="#open" data-r="open"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Open bets<span class="badge">4</span></a>
+      <a href="#live" data-r="live"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7"/></svg>Live</a>
+      <a href="#casino" data-r="casino"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg>Casino</a>
+      <a href="#history" data-r="history"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>History</a>
+      <a href="#chat" data-r="chat"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Agent chat<span class="badge">1</span></a>
+      <div class="nav-h">Place a bet</div>
+      <a href="#slip" onclick="openSlip('straight');return false">Straight</a>
+      <a href="#slip" onclick="openSlip('parlay');return false">Parlay</a>
+      <a href="#slip" onclick="openSlip('teaser');return false">Teaser</a>
+      <a href="#slip" onclick="openSlip('rr');return false">Round robin</a>
+      <a href="#slip" onclick="openSlip('ifwin');return false">If-bets &amp; reverses</a>
+      <div class="nav-h">Concept</div>
+      <a href="#compare" data-r="compare"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="8" height="16" rx="1.5"/><rect x="13" y="4" width="8" height="16" rx="1.5"/></svg>Before vs after</a>
+    </nav>
+    <div class="side-foot">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+        <a href="#rules" onclick="toast('Concept: house rules would open here, on-brand.');return false">House rules</a>
+        <a href="#signin" style="min-height:44px;display:inline-flex;align-items:center">Sign out</a>
+      </div>
+      <div style="margin-top:6px">Concept v0.1 · sample data</div>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <a class="wordmark m-only" href="#home" aria-label="Home"><span class="dot"></span>COKAIN</a>
+      <h1 id="title">Home</h1>
+      <div class="spacer"></div>
+      <div class="chip-bal" title="Available balance (sample)">
+        <small>Avail.</small><span class="num" id="balv">$1,250.00</span>
+        <button class="icon-btn" aria-label="Hide balance" onclick="toggleBal(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button>
+      </div>
+      <button class="btn d-only" onclick="openSlip()">Bet slip <span class="badge" id="slipCount">2</span></button>
+      <button class="icon-btn" id="themeBtn" aria-label="Switch to light theme" onclick="toggleTheme()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </header>
+
+    <main class="content" id="content">
+
+<!-- HOME -->
+<section class="screen" id="s-home" data-title="Home">
+  <h1 class="page-title">Welcome back</h1>
+  <div class="hero">
+    <div class="card bal-card">
+      <div class="kicker">Hi, Sample Player <span class="sample">Sample</span></div>
+      <div class="bal-big num">$1,250.00 <span class="muted" style="font-size:16px;font-weight:600">available</span></div>
+      <div class="stats3">
+        <div class="stat"><span class="kicker">Balance</span><b class="num">$1,430.00</b></div>
+        <div class="stat"><span class="kicker">At risk</span><b class="num">$180.00</b></div>
+        <div class="stat"><span class="kicker">Pending</span><b class="num">4 bets</b></div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;position:relative;z-index:1">
+        <a class="btn primary" href="#open">View open bets</a>
+        <button class="btn" onclick="openSlip()">Bet slip · 2</button>
+      </div>
+    </div>
+    <div class="card week">
+      <div style="display:flex;align-items:baseline;gap:10px">
+        <div><div class="kicker">This week · Mon Oct 5 – Sun Oct 11</div>
+        <div style="font-size:28px;font-weight:800" class="num pos">+$325.00</div></div>
+        <a href="#history" class="btn ghost" style="margin-left:auto">Details</a>
+      </div>
+      <div class="bars" aria-label="Daily win/loss sample chart">
+        <div class="bar"><i class="zero"></i></div>
+        <div class="bar"><i class="up" style="height:40px"></i></div>
+        <div class="bar"><i class="zero"></i></div>
+        <div class="bar"><i class="dn" style="height:44px"></i></div>
+        <div class="bar"><i class="zero"></i></div>
+        <div class="bar"><i class="up" style="height:52px"></i></div>
+        <div class="bar"><i class="zero"></i></div>
+      </div>
+      <div class="bar-l"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span class="today">Sun</span></div>
+      <div class="muted" style="font-size:13px;margin-top:8px">Last week: <span class="neg num">−$140.00</span></div>
+    </div>
+  </div>
+
+  <div class="h-row"><h2 class="h2">Place a bet</h2></div>
+  <div class="qa">
+    <button onclick="openSlip('straight')"><span class="qi">1</span>Straight<span>Single pick</span></button>
+    <button onclick="openSlip('parlay')"><span class="qi">P</span>Parlay<span>2+ picks, all must win</span></button>
+    <button onclick="openSlip('teaser')"><span class="qi">T</span>Teaser<span>Move the line for you</span></button>
+    <button onclick="openSlip('rr')"><span class="qi">RR</span>Round robin<span>Many small parlays</span></button>
+    <button onclick="toast('Concept: opens the provider Prop Builder inside this frame.')"><span class="qi">+</span>Props<span>Player &amp; game props</span></button>
+    <button onclick="toast('Concept: opens the provider Racebook inside this frame.')"><span class="qi">H</span>Horses<span>Racebook</span></button>
+  </div>
+
+  <div class="h-row"><h2 class="h2"><span class="st live">Live now</span></h2><a class="link" href="#live">See all live →</a></div>
+  <div class="strip" id="homeLive"></div>
+</section>
+
+<!-- OPEN BETS -->
+<section class="screen" id="s-open" data-title="Open bets" data-skel="1">
+  <h1 class="page-title">Open bets</h1>
+  <div class="skel" aria-hidden="true"></div>
+  <div class="real">
+    <div class="summary">
+      <div class="tot"><b>4 open bets</b> · risking <b class="num">$180.00</b> to win <b class="num pos">$819.63</b></div>
+      <span class="sample">Sample data</span>
+    </div>
+    <div class="toolbar">
+      <div class="pill-row" role="group" aria-label="Filter open bets" id="obFilter">
+        <button class="pill" aria-pressed="true" data-f="all">All <span class="n">4</span></button>
+        <button class="pill" aria-pressed="false" data-f="live">Live <span class="n">3</span></button>
+        <button class="pill" aria-pressed="false" data-f="parlay">Parlays <span class="n">2</span></button>
+        <button class="pill" aria-pressed="false" data-f="today">Today <span class="n">4</span></button>
+      </div>
+      <div class="spacer"></div>
+      <label class="check" style="min-height:40px"><input type="checkbox" checked onchange="document.getElementById('obList').classList.toggle('hide-scores',!this.checked)"> Show live scores</label>
+      <button class="btn ghost" onclick="replayLoad('open')" title="Demo the skeleton loading state">↻ Demo loading</button>
+    </div>
+    <div id="obList"></div>
+  </div>
+</section>
+
+<!-- LIVE -->
+<section class="screen" id="s-live" data-title="Live" data-skel="1">
+  <h1 class="page-title">Live</h1>
+  <div class="skel" aria-hidden="true"></div>
+  <div class="real">
+    <div class="toolbar">
+      <div class="pill-row"><button class="pill" aria-pressed="true">All sports</button><button class="pill" aria-pressed="false">Football</button><button class="pill" aria-pressed="false">Basketball</button><button class="pill" aria-pressed="false">Hockey</button></div>
+      <div class="spacer"></div><span class="sample">Sample games</span>
+    </div>
+    <div class="live-grid" id="liveGrid"></div>
+    <p class="muted" style="font-size:14px;margin-top:18px">Concept note: Ultra Live / Premium Live stay as provider modules, opened from here under a single COKAIN header (no second hamburger).</p>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section class="screen" id="s-history" data-title="History" data-skel="1">
+  <h1 class="page-title">History</h1>
+  <div class="skel" aria-hidden="true"></div>
+  <div class="real">
+    <div class="week-sel">
+      <button class="icon-btn" aria-label="Previous week">‹</button>
+      <label class="sr" for="wk">Week</label>
+      <select id="wk"><option>This week · Oct 5 – Oct 11</option><option>Last week · Sep 28 – Oct 4</option><option>Sep 21 – Sep 27</option><option>Sep 14 – Sep 20</option></select>
+      <button class="icon-btn" aria-label="Next week" disabled style="opacity:.5">›</button>
+      <span class="sample" style="margin-left:6px">Sample data</span>
+    </div>
+    <div class="totals">
+      <div class="card"><span class="kicker">Win / loss</span><b class="num pos">+$325.00</b></div>
+      <div class="card"><span class="kicker">Cash in / out</span><b class="num">$0.00</b></div>
+      <div class="card"><span class="kicker">Balance</span><b class="num">$1,430.00</b></div>
+      <div class="card"><span class="kicker">Settled bets</span><b class="num">6 <span class="muted" style="font-size:14px;font-weight:600">3W · 2L · 1P</span></b></div>
+    </div>
+    <div class="days" role="group" aria-label="Filter by day" id="days"></div>
+    <div class="toolbar">
+      <div class="pill-row" role="group" aria-label="Filter results" id="hFilter">
+        <button class="pill" aria-pressed="true" data-f="all">All</button>
+        <button class="pill" aria-pressed="false" data-f="won">Won</button>
+        <button class="pill" aria-pressed="false" data-f="lost">Lost</button>
+        <button class="pill" aria-pressed="false" data-f="push">Push</button>
+        <button class="pill" aria-pressed="false" data-f="Straight">Straight</button>
+        <button class="pill" aria-pressed="false" data-f="Parlay">Parlay</button>
+        <button class="pill" aria-pressed="false" data-f="Teaser">Teaser</button>
+      </div>
+    </div>
+    <div class="card hist-wrap" style="overflow:hidden">
+      <table class="hist">
+        <thead><tr><th>Placed</th><th>Bet</th><th>Selections</th><th class="r">Risk</th><th class="r">To win</th><th>Result</th><th class="r">Net</th></tr></thead>
+        <tbody id="hBody"></tbody>
+      </table>
+      <div class="empty" id="hEmpty" hidden>No bets match these filters.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CASINO -->
+<section class="screen" id="s-casino" data-title="Casino" data-skel="1">
+  <h1 class="page-title">Casino</h1>
+  <div class="skel" aria-hidden="true"></div>
+  <div class="real">
+    <div class="cas-top">
+      <div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><label class="sr" for="cq">Search games</label><input id="cq" class="input" placeholder="Search games" oninput="renderTiles()"></div>
+      <div class="seg" role="group" aria-label="Lobby"><button aria-pressed="true">All lobbies</button><button aria-pressed="false">Virtual</button><button aria-pressed="false">Live</button><button aria-pressed="false">Deluxe</button></div>
+      <span class="sample">Placeholder tiles</span>
+    </div>
+    <div class="tabs" role="tablist" id="ctabs">
+      <button role="tab" aria-selected="true" data-c="all">Featured</button>
+      <button role="tab" aria-selected="false" data-c="slots">Slots</button>
+      <button role="tab" aria-selected="false" data-c="table">Table games</button>
+      <button role="tab" aria-selected="false" data-c="live">Live dealer</button>
+      <button role="tab" aria-selected="false" data-c="fav">★ Favorites <span class="n" id="favN">(2)</span></button>
+    </div>
+    <div class="tiles" id="tiles"></div>
+    <div class="empty" id="tEmpty" hidden>No games found. Try another search.</div>
+  </div>
+</section>
+
+<!-- CHAT -->
+<section class="screen" id="s-chat" data-title="Agent chat">
+  <h1 class="page-title">Agent chat</h1>
+  <div class="card chat">
+    <div class="chat-h"><div class="avatar">AG</div><div><b>Your agent</b> <span class="sample">Sample</span><div class="muted" style="font-size:13px">Usually replies within an hour</div></div></div>
+    <div class="thread" id="thread" aria-live="polite">
+      <div class="daysep">Sat Oct 10</div>
+      <div class="msg them">Morning! Weekly figures settle Monday as usual. Anything you need before the games?<span class="t">9:12 AM</span></div>
+      <div class="msg me">Can you raise my parlay limit for Sunday?<span class="t">9:20 AM</span></div>
+      <div class="msg them">Done — it's $100 per parlay this week (sample).<span class="t">9:41 AM</span></div>
+      <div class="daysep">Today · Sun Oct 11</div>
+      <div class="msg me">Is the 2-team teaser 6 or 7 points on football?<span class="t">12:02 PM</span></div>
+      <div class="msg them">Your pick: 6, 6½ or 7 on football, 4, 4½ or 5 on basketball. The bet slip shows the price for each.<span class="t">12:15 PM</span></div>
+    </div>
+    <div class="quick"><button class="pill" onclick="sendMsg(this.textContent)">What's my figure?</button><button class="pill" onclick="sendMsg(this.textContent)">Payout question</button><button class="pill" onclick="sendMsg(this.textContent)">Reset password</button></div>
+    <form class="composer" onsubmit="event.preventDefault();const i=document.getElementById('cm');if(i.value.trim()){sendMsg(i.value);i.value=''}">
+      <div class="field"><label class="sr" for="cm">Message your agent</label><input id="cm" class="input" placeholder="Message your agent…" autocomplete="off"></div>
+      <button class="btn primary" style="min-height:52px" type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="screen" id="s-compare" data-title="Before vs after">
+  <h1 class="page-title">Before vs after</h1>
+  <p class="muted" style="margin-top:0;max-width:70ch">Left: the current site (redacted screenshots, black boxes hide personal data). Right: this concept, same information. Red pins = problems, green = fixes.</p>
+
+  <div class="ba-sec">
+    <div class="h-row"><h2 class="h2">Open bets</h2></div>
+    <div class="ba">
+      <div>
+        <h3><span class="lbl-before">BEFORE</span> Desktop (D01) · phone (M03)</h3>
+        <div class="shot"><img alt="Current Open Bets page, desktop, redacted" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1024' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' fill='%23aaa' font-family='sans-serif' font-size='28' text-anchor='middle'%3ECurrent-site screenshot omitted from public copy%3C/text%3E%3C/svg%3E">
+          <span class="pin" style="left:50%;top:12.9%">1</span><span class="pin" style="left:80%;top:15.2%">2</span><span class="pin" style="left:43%;top:18.2%">3</span><span class="pin" style="left:58%;top:27%">4</span><span class="pin" style="left:24%;top:15.2%">5</span>
+        </div>
+        <div class="shot" style="margin-top:10px"><img alt="Current Open Bets page, phone zoom, redacted" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1024' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' fill='%23aaa' font-family='sans-serif' font-size='28' text-anchor='middle'%3ECurrent-site screenshot omitted from public copy%3C/text%3E%3C/svg%3E">
+          <span class="pin" style="left:93%;top:10%">6</span><span class="pin" style="left:50%;top:36%">7</span>
+        </div>
+        <ul class="notes">
+          <li><span class="k">1</span><span>Summary area loads blank for several seconds (JS error), then a plain text line.</span></li>
+          <li><span class="k">2</span><span>“Risk / Win” with no $ and no “to win” wording.</span></li>
+          <li><span class="k">3</span><span>“PARLAY (3 TEAMS)” then raw lines like “[456] NO SAINTS +117” — no per-leg status.</span></li>
+          <li><span class="k">4</span><span>Every leg embeds a full scoreboard; one 3-leg parlay fills the screen.</span></li>
+          <li><span class="k">5</span><span>Sort chevrons with no visible sort state.</span></li>
+          <li><span class="k">6</span><span>Hamburger only; vendor pages add a second one. Balance tiles crowd the header.</span></li>
+          <li><span class="k">7</span><span>Text links “Hide scores | Up Today”; small targets, unclear meaning.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="lbl-after">AFTER</span> Concept card</h3>
+        <div class="after-box" id="baOpen"></div>
+        <ul class="notes g">
+          <li><span class="k">1</span><span>Skeleton placeholders paint instantly; summary reads “risking $180.00 to win $819.63”.</span></li>
+          <li><span class="k">2</span><span>Risk → To win in dollars on every card.</span></li>
+          <li><span class="k">3</span><span>Bet type tag + numbered legs, each with a Won / Lost / Live / Pending chip and a progress bar.</span></li>
+          <li><span class="k">4</span><span>Compact score pill per leg; a single toggle hides all scores.</span></li>
+          <li><span class="k">5</span><span>Filter chips (All · Live · Parlays · Today) instead of sort chevrons.</span></li>
+          <li><span class="k">6</span><span>One nav: bottom tab bar on phone, sidebar on desktop; balance chip can be hidden.</span></li>
+          <li><span class="k">7</span><span>44px chips and a labelled “Show live scores” switch.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="ba-sec">
+    <div class="h-row"><h2 class="h2">History</h2></div>
+    <div class="ba stack">
+      <div>
+        <h3><span class="lbl-before">BEFORE</span> Desktop (D03) · phone (M05)</h3>
+        <div class="shots2"><div class="shot"><img alt="Current History page, desktop, redacted" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1024' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' fill='%23aaa' font-family='sans-serif' font-size='28' text-anchor='middle'%3ECurrent-site screenshot omitted from public copy%3C/text%3E%3C/svg%3E">
+          <span class="pin" style="left:50%;top:22%">1</span><span class="pin" style="left:57%;top:40%">2</span><span class="pin" style="left:15%;top:66%">3</span><span class="pin" style="left:92%;top:56%">4</span><span class="pin" style="left:97%;top:63%">5</span>
+        </div>
+        <div class="shot" style="margin-top:10px"><img alt="Current History page, phone zoom, results missing" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1024' height='600'%3E%3Crect width='100%25' height='100%25' fill='%23222'/%3E%3Ctext x='50%25' y='50%25' fill='%23aaa' font-family='sans-serif' font-size='28' text-anchor='middle'%3ECurrent-site screenshot omitted from public copy%3C/text%3E%3C/svg%3E">
+          <span class="pin" style="left:50%;top:76%">6</span><span class="pin" style="left:50%;top:57%">7</span>
+        </div></div>
+        <ul class="notes">
+          <li><span class="k">1</span><span>Day strip where only today is enabled; other days look broken.</span></li>
+          <li><span class="k">2</span><span>Centred weekly grid vs full-width bet table; “Loading…” for seconds.</span></li>
+          <li><span class="k">3</span><span>Parlay game dates stacked with no leg labels; mixed date formats.</span></li>
+          <li><span class="k">4</span><span>Result column reads “LOSE LOSE PEND PEND WIN”.</span></li>
+          <li><span class="k">5</span><span>“Detail” column with unclear meaning; 10–11px text.</span></li>
+          <li><span class="k">6</span><span><b>Phone: weekly figures and every bet row are hidden</b> — page ends after the heading.</span></li>
+          <li><span class="k">7</span><span>Light-grey disabled days fail contrast.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3><span class="lbl-after">AFTER</span> Concept totals + rows</h3>
+        <div class="after-box" id="baHist"></div>
+        <ul class="notes g">
+          <li><span class="k">1</span><span>Days show their own net figure; empty days say “—” but stay readable.</span></li>
+          <li><span class="k">2</span><span>Four totals cards (Win/loss, Cash, Balance, Settled) aligned to the table.</span></li>
+          <li><span class="k">3</span><span>One date format everywhere: “Sat Oct 10 · 12:08 PM”.</span></li>
+          <li><span class="k">4</span><span>Each leg gets its own labelled chip next to the pick.</span></li>
+          <li><span class="k">5</span><span>“Detail” replaced by a clear Net column (+$ / −$).</span></li>
+          <li><span class="k">6</span><span>Same table becomes stacked cards on phone — nothing hidden.</span></li>
+          <li><span class="k">7</span><span>All text meets WCAG AA in both themes.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+  </div>
+</div>
+
+<nav class="tabbar" aria-label="Main" id="tabbar">
+  <a href="#open" data-r="open"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Bets<span class="badge">4</span></a>
+  <a href="#live" data-r="live"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>Live</a>
+  <a href="#casino" data-r="casino"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="12" cy="12" r="1.3" fill="currentColor"/></svg>Casino</a>
+  <a href="#history" data-r="history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>History</a>
+  <a href="#chat" data-r="chat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>Chat<span class="badge">1</span></a>
+</nav>
+<button class="btn primary fab" id="fab" onclick="openSlip()">Bet slip <span class="badge" style="background:var(--accent-ink);color:var(--accent)">2</span></button>
+
+<!-- BET SLIP -->
+<div class="scrim" onclick="closeSlip()"></div>
+<aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="slipT" id="drawer">
+  <div class="dr-h"><h2 class="h2" id="slipT">Bet slip</h2><span class="sample">Concept</span><div class="spacer"></div>
+    <div class="seg" role="group" aria-label="Odds format" id="oddsSeg"><button aria-pressed="true" data-o="am">American</button><button aria-pressed="false" data-o="dec">Decimal</button></div>
+    <button class="icon-btn" aria-label="Close bet slip" onclick="closeSlip()">✕</button></div>
+  <div class="dr-b">
+    <div class="kicker" style="margin-bottom:6px">Bet type</div>
+    <div class="typebar" role="group" aria-label="Bet type" id="typebar">
+      <button class="pill" data-t="straight">Straight</button>
+      <button class="pill" data-t="parlay">Parlay</button>
+      <button class="pill" data-t="teaser">Teaser</button>
+      <button class="pill" data-t="rr">Round robin</button>
+      <button class="pill" data-t="ifwin">If win only</button>
+    </div>
+    <div class="type-title"><span class="btype"><span class="tag" id="tTag">TEASER</span></span><b id="tName">2-team teaser · 6 points (football)</b></div>
+    <div class="muted" style="font-size:14px" id="tDesc"></div>
+    <div id="teaserBox">
+      <div class="kicker" style="margin-top:14px">Points</div>
+      <div class="pts" role="group" aria-label="Teaser points" id="pts">
+        <button class="pill" aria-pressed="true" data-p="6">6 pts</button><button class="pill" aria-pressed="false" data-p="6.5">6½ pts</button><button class="pill" aria-pressed="false" data-p="7">7 pts</button>
+      </div>
+      <details class="legend" open>
+        <summary>What does <code>2 TEAS 6,6½,7 FB 4,4½,5 BK</code> mean?</summary>
+        <div class="body">
+          A <b>2-team teaser</b>: pick 2 sides; each line moves in your favour by the points you choose. Both must win.
+          <dl>
+            <dt>2 TEAS</dt><dd>2-team teaser</dd>
+            <dt>6, 6½, 7 FB</dt><dd>Football: choose 6, 6½ or 7 points</dd>
+            <dt>4, 4½, 5 BK</dt><dd>Basketball: choose 4, 4½ or 5 points</dd>
+            <dt>SPECIAL</dt><dd>Fixed-points teaser at a set price (see house rules)</dd>
+          </dl>
+        </div>
+      </details>
+    </div>
+    <div class="kicker" style="margin-top:14px">Selections (2) <span class="sample">Sample</span></div>
+    <div id="slipLegs"></div>
+    <div class="stake">
+      <div class="field"><label for="risk">Risk ($)</label><div class="money-in"><span>$</span><input id="risk" class="input" inputmode="decimal" value="55.00" oninput="calcSlip('risk')"></div></div>
+      <div class="field"><label for="towin">To win ($)</label><div class="money-in"><span>$</span><input id="towin" class="input" inputmode="decimal" value="50.00" oninput="calcSlip('win')"></div></div>
+    </div>
+    <div class="pill-row" style="margin-top:10px"><button class="pill" onclick="setRisk(10)">$10</button><button class="pill" onclick="setRisk(25)">$25</button><button class="pill" onclick="setRisk(50)">$50</button><button class="pill" onclick="setRisk(100)">$100</button></div>
+  </div>
+  <div class="dr-f">
+    <div class="sum-line"><span>Price <span class="odds" id="slipPrice" data-am="-110">-110</span></span><span>Total payout <b class="num" id="payout">$105.00</b></span></div>
+    <button class="btn primary lg block" onclick="toast('Concept only — no bet was placed.')">Review &amp; place bet</button>
+    <div class="faint" style="font-size:12px;text-align:center;margin-top:8px">You confirm on the next step. Limits set by your agent.</div>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>// ---------- SAMPLE DATA (fictional teams, fictional amounts) ----------
+const TEAMS={
+ RIV:{n:'Riverton Comets',c:'#3b5bdb'},ASH:{n:'Ashford Owls',c:'#9c36b5'},BAY:{n:'Bayside Pilots',c:'#0c8599'},GRN:{n:'Granite Peaks',c:'#5c677d'},
+ CED:{n:'Cedar Valley Wolves',c:'#2b8a3e'},PLS:{n:'Port Linden Stars',c:'#e8590c'},ELM:{n:'Elm Harbor Foxes',c:'#c2255c'},KNG:{n:'Kingsbridge Bulls',c:'#a61e4d'},
+ MTR:{n:'Metro Lynx',c:'#1971c2'},SUN:{n:'Sunfield Hawks',c:'#d9480f'},OAK:{n:'Oakmont Royals',c:'#5f3dc4'},HLD:{n:'Highland Tide',c:'#087f5b'}
+};
+const OPEN=[
+ {id:'S-1001',type:'Parlay',legsN:3,placed:'Sun Oct 11 · 1:03 PM',risk:50,win:622.54,live:true,legs:[
+   {st:'live',pick:'Riverton Comets',mk:'Moneyline',am:117,away:'RIV',home:'ASH',sa:3,sh:0,clk:'Q1 0:00',when:'Sun Oct 11 · 12:00 PM'},
+   {st:'won',pick:'Bayside Pilots',mk:'Moneyline',am:145,away:'BAY',home:'GRN',final:'Final 27–20',when:'Sun Oct 11 · 8:30 AM'},
+   {st:'pend',pick:'Cedar Valley Wolves',mk:'Moneyline',am:153,away:'CED',home:'PLS',when:'Sun Oct 11 · 3:25 PM'}]},
+ {id:'S-1002',type:'Teaser',legsN:2,sub:'2-team · 6 pts football',placed:'Sun Oct 11 · 11:40 AM',risk:60,win:54.55,live:true,legs:[
+   {st:'live',pick:'Port Linden Stars',mk:'Spread',line:'+0.5',teased:'+6.5',am:null,away:'ELM',home:'PLS',sa:7,sh:14,clk:'Q2 01:30',when:'Sun Oct 11 · 12:00 PM'},
+   {st:'pend',pick:'Kingsbridge Bulls',mk:'Spread',line:'-7.5',teased:'-1.5',am:null,away:'KNG',home:'MTR',when:'Sun Oct 11 · 7:20 PM'}]},
+ {id:'S-1003',type:'Straight',sub:'Live bet',placed:'Sun Oct 11 · 12:31 PM',risk:40,win:63.20,live:true,legs:[
+   {st:'live',pick:'Sunfield Hawks',mk:'Moneyline (live)',am:158,away:'SUN',home:'OAK',sa:10,sh:13,clk:'Q3 08:12',when:'Sun Oct 11 · 12:00 PM'}]},
+ {id:'S-1004',type:'Parlay',legsN:2,placed:'Sun Oct 11 · 9:15 AM',risk:30,win:79.34,live:false,legs:[
+   {st:'lost',pick:'Highland Tide',mk:'Spread',line:'-3.5',am:-110,away:'HLD',home:'ASH',final:'Final 20–21',when:'Sun Oct 11 · 8:30 AM'},
+   {st:'pend',pick:'Over 47.5',mk:'Total · Metro Lynx @ Granite Peaks',am:-110,away:'MTR',home:'GRN',when:'Sun Oct 11 · 3:25 PM'}],note:'One leg lost — this parlay will settle as lost.'}
+];
+const HIST=[
+ {day:'Sat',placed:'Sat Oct 10 · 12:08 PM',type:'Parlay',n:5,risk:20,win:410,res:'lost',net:-20,legs:[['won','Riverton Comets −6½ (−155)'],['won','Bayside Pilots −9 (−150)'],['lost','Ashford Owls −2½ (−120)'],['won','Granite Peaks −7 (−145)'],['lost','Cedar Valley Wolves −7 (−175)']]},
+ {day:'Sat',placed:'Sat Oct 10 · 12:08 PM',type:'Parlay',n:3,risk:25,win:236.80,res:'won',net:236.80,legs:[['won','Port Linden Stars ML (+145)'],['won','Elm Harbor Foxes ML (+103)'],['won','Kingsbridge Bulls ML (+117)']]},
+ {day:'Sat',placed:'Sat Oct 10 · 7:30 PM',type:'Straight',sub:'Live · Moneyline',risk:30,win:118.20,res:'won',net:118.20,legs:[['won','Metro Lynx to win (+394)']]},
+ {day:'Fri',placed:'Fri Oct 9 · 6:45 PM',type:'Teaser',sub:'2-team · 6 pts',risk:55,win:50,res:'push',net:0,legs:[['won','Sunfield Hawks +8½ (teased from +2½)'],['push','Oakmont Royals −1 (teased from −7)']]},
+ {day:'Thu',placed:'Thu Oct 8 · 7:10 PM',type:'Straight',sub:'Spread',risk:110,win:100,res:'lost',net:-110,legs:[['lost','Highland Tide −3 (−110)']]},
+ {day:'Tue',placed:'Tue Oct 6 · 6:05 PM',type:'Straight',sub:'Total',risk:110,win:100,res:'won',net:100,legs:[['won','Over 221.5 · Riverton vs Ashford (−110)']]}
+];
+const DAYS=[['Mon','5',0],['Tue','6',100],['Wed','7',0],['Thu','8',-110],['Fri','9',0],['Sat','10',335],['Sun','11',0]];
+const LIVE=[
+ {away:'RIV',home:'ASH',sa:3,sh:0,clk:'Q1 0:00',lg:'Football',ml:[117,-138],sp:['+2.5','-2.5'],tot:'44.5'},
+ {away:'ELM',home:'PLS',sa:7,sh:14,clk:'Q2 01:30',lg:'Football',ml:[210,-260],sp:['+6.5','-6.5'],tot:'47.5'},
+ {away:'SUN',home:'OAK',sa:10,sh:13,clk:'Q3 08:12',lg:'Football',ml:[158,-190],sp:['+3','-3'],tot:'39.5'},
+ {away:'MTR',home:'HLD',sa:58,sh:61,clk:'Q3 04:40',lg:'Basketball',ml:[125,-145],sp:['+2.5','-2.5'],tot:'214.5'},
+ {away:'KNG',home:'CED',sa:1,sh:1,clk:'P2 11:02',lg:'Hockey',ml:[-105,-115],sp:['+1.5','-1.5'],tot:'5.5'}
+];
+const GAMES=[['Golden Reels','slots','#f59f00','#e8590c'],['Night Spin','slots','#5f3dc4','#1c7ed6'],['Blackjack Pro','table','#2b8a3e','#087f5b'],['Roulette Live','live','#c92a2a','#862e9c'],
+ ['Fruit Rush','slots','#e64980','#f76707'],['Baccarat','table','#364fc7','#0b7285'],['Lucky Sevens','slots','#d6336c','#f59f00'],['Live Blackjack','live','#0b7285','#2b8a3e'],
+ ['Video Poker','table','#495057','#1c7ed6'],['Treasure Map','slots','#a87b00','#5c940d'],['Game Show','live','#9c36b5','#e8590c'],['Craps','table','#c2255c','#5f3dc4']];
+let favs=new Set(['Night Spin','Blackjack Pro']);
+let oddsFmt='am', slipType='teaser', pts='6';
+
+// ---------- helpers ----------
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const money=v=>(v<0?'−':'')+'$'+Math.abs(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const signed=v=>v>0?'+'+money(v):v<0?money(v):'$0.00';
+function fmtOdds(am){ if(am==null) return '';
+ if(oddsFmt==='dec'){const d=am>0?1+am/100:1+100/Math.abs(am);return d.toFixed(2);} return (am>0?'+':'−')+Math.abs(am); }
+function oddsSpan(am){return am==null?'':`<span class="odds" data-am="${am}">${fmtOdds(am)}</span>`}
+const STL={won:'Won',lost:'Lost',pend:'Pending',live:'Live',push:'Push'};
+const chip=s=>`<span class="st ${s}">${STL[s]}</span>`;
+const crest=k=>`<span class="crest" style="background:${TEAMS[k].c}">${k}</span>`;
+
+// ---------- renderers ----------
+function betCard(b){
+ const counts={won:0,lost:0,live:0,pend:0}; b.legs.forEach(l=>counts[l.st]++);
+ const title=b.type==='Straight'?'Straight':`${b.type} · ${b.legs.length} legs`;
+ const progress=b.legs.length>1?`<div class="prog">${b.legs.map(l=>`<i class="${l.st}"></i>`).join('')}</div>
+   <div class="prog-l">${[counts.won&&counts.won+' won',counts.lost&&counts.lost+' lost',counts.live&&counts.live+' live',counts.pend&&counts.pend+' pending'].filter(Boolean).join(' · ')}</div>`:'';
+ return `<article class="card bet" data-live="${b.live}" data-type="${b.type}">
+ <div class="bet-h"><div><div class="btype"><span class="tag">${b.type.toUpperCase()}</span>${b.legs.length>1?b.legs.length+' legs':''}${b.sub?` <span class="muted" style="font-weight:700;letter-spacing:0;text-transform:none">· ${b.sub}</span>`:''}</div>
+  <div class="meta">Placed ${b.placed} CT</div></div>
+  <div class="money"><div><div class="lbl">Risk</div><div class="v num">${money(b.risk)}</div></div><div class="arrow" aria-hidden="true">→</div><div><div class="lbl">To win</div><div class="v num pos">${money(b.win)}</div></div></div></div>
+ ${progress}
+ <ol class="legs">${b.legs.map((l,i)=>`<li class="leg"><span class="n">${i+1}</span>
+  <div><div class="sel">${l.pick} ${l.line?`<span class="odds">${l.teased||l.line}</span>`:''} ${oddsSpan(l.am)}</div>
+   <div class="gm">${l.mk} · ${TEAMS[l.away].n} @ ${TEAMS[l.home].n}</div>
+   ${l.teased?`<div class="teased">Teased: <s>${l.line}</s> → <b>${l.teased}</b> (6 pts)</div>`:''}</div>
+  <div class="right">${chip(l.st)}${l.st==='live'?`<span class="score num">${l.away} ${l.sa} – ${l.sh} ${l.home} <span class="clock">${l.clk}</span></span>`:l.final?`<span class="score num">${l.final}</span>`:`<span class="faint" style="font-size:13px">${l.when}</span>`}</div></li>`).join('')}</ol>
+ ${b.note?`<div class="note">${b.note}</div>`:''}
+ <div class="bet-f"><span>Ref <span class="ref">${b.id}</span> (sample)</span><span class="spacer"></span><a href="#chat" style="font-weight:700;color:var(--odds);min-height:36px;display:inline-flex;align-items:center">Ask agent about this bet</a></div>
+ </article>`;
+}
+function renderOpen(f='all'){
+ const list=OPEN.filter(b=>f==='all'||(f==='live'&&b.live)||(f==='parlay'&&b.type==='Parlay')||f==='today');
+ $('#obList').innerHTML=list.map(betCard).join('');
+}
+function gameCard(g){
+ return `<div class="card game"><div style="display:flex;align-items:center;gap:8px"><span class="st live">Live</span><span class="kicker">${g.lg}</span><span class="spacer"></span><span class="num" style="color:var(--live);font-weight:800;font-size:13px">${g.clk}</span></div>
+ <div class="teams"><div class="t">${crest(g.away)}${TEAMS[g.away].n}<span class="sc num">${g.sa}</span></div><div class="t">${crest(g.home)}${TEAMS[g.home].n}<span class="sc num">${g.sh}</span></div></div>
+ <div class="mk"><button class="mkb" onclick="pick(this)"><small>Spread</small><span class="odds">${g.sp[0]}</span></button><button class="mkb" onclick="pick(this)"><small>Money</small>${oddsSpan(g.ml[0])}</button><button class="mkb" onclick="pick(this)"><small>Total</small><span class="odds">O ${g.tot}</span></button></div></div>`;
+}
+function renderLive(){ $('#homeLive').innerHTML=LIVE.map(gameCard).join(''); $('#liveGrid').innerHTML=LIVE.map(gameCard).join(''); }
+let dayF=null;
+function renderDays(){
+ $('#days').innerHTML=DAYS.map(([d,n,v])=>`<button class="day" aria-pressed="${dayF===d}" data-d="${d}" ${d==='Sun'?'':''}><span>${d}<span class="dn"> ${n}</span></span><b class="num ${v>0?'pos':v<0?'neg':''}">${v?signed(v).replace('.00',''):'—'}</b></button>`).join('');
+ $$('#days .day').forEach(b=>b.onclick=()=>{dayF=dayF===b.dataset.d?null:b.dataset.d;renderDays();renderHist();});
+}
+let hF='all';
+function histRow(h){
+ return `<tr data-res="${h.res}" data-type="${h.type}">
+ <td data-l="Placed" class="num" style="white-space:nowrap">${h.placed}</td>
+ <td data-l="Bet"><span class="bt">${h.type}${h.n?' · '+h.n+' legs':''}</span>${h.sub?`<div class="muted" style="font-size:13px">${h.sub}</div>`:''}</td>
+ <td data-l="Selections" class="desc"><div class="lg">${h.legs.map(([s,t])=>`${chip(s)}<span class="tx">${t}</span>`).join('')}</div></td>
+ <td data-l="Risk" class="r num">${money(h.risk)}</td>
+ <td data-l="To win" class="r num">${money(h.win)}</td>
+ <td data-l="Result" class="res">${chip(h.res)}</td>
+ <td data-l="Net" class="r num" style="font-weight:800"><span class="${h.net>0?'pos':h.net<0?'neg':''}">${signed(h.net)}</span></td></tr>`;
+}
+function renderHist(){
+ const rows=HIST.filter(h=>(hF==='all'||h.res===hF||h.type===hF)&&(!dayF||h.day===dayF));
+ $('#hBody').innerHTML=rows.map(histRow).join(''); $('#hEmpty').hidden=rows.length>0;
+}
+function renderTiles(){
+ const q=($('#cq').value||'').toLowerCase(); const c=$('#ctabs [aria-selected="true"]').dataset.c;
+ const list=GAMES.filter(g=>(c==='all'||(c==='fav'?favs.has(g[0]):g[1]===c))&&g[0].toLowerCase().includes(q));
+ $('#tiles').innerHTML=list.map(([n,cat,a,b],i)=>`<div class="tile"><div class="art" style="background:linear-gradient(135deg,${a},${b})">${n.split(' ').map(w=>w[0]).join('')}</div>
+  <span class="prov">${['VIRTUAL','DELUXE','LIVE'][cat==='live'?2:i%2]}</span>
+  <button class="fav" aria-label="Favorite ${n}" aria-pressed="${favs.has(n)}" data-n="${n}"><svg viewBox="0 0 24 24" fill="${favs.has(n)?'currentColor':'none'}" stroke="currentColor" stroke-width="2"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></button>
+  <div class="info"><div><b>${n}</b><small>${{slots:'Slot',table:'Table game',live:'Live dealer'}[cat]} · placeholder</small></div></div></div>`).join('');
+ $('#tEmpty').hidden=list.length>0; $('#favN').textContent=`(${favs.size})`;
+ $$('#tiles .fav').forEach(b=>b.onclick=()=>{const n=b.dataset.n;favs.has(n)?favs.delete(n):favs.add(n);renderTiles();});
+}
+function skeleton(id){
+ const n=id==='casino'?0:3;
+ if(id==='casino') return `<div class="sk" style="height:44px;max-width:420px;margin-bottom:18px"></div><div class="tiles">${'<div class="card"><div class="sk" style="aspect-ratio:4/3;border-radius:14px 14px 0 0"></div><div style="padding:10px 12px"><div class="sk sk-line" style="width:70%"></div></div></div>'.repeat(8)}</div>`;
+ const top=id==='history'?`<div class="totals">${'<div class="card" style="padding:14px 16px"><div class="sk sk-line" style="width:50%"></div><div class="sk" style="height:26px;width:70%"></div></div>'.repeat(4)}</div>`:`<div class="sk" style="height:22px;width:340px;max-width:80%;margin-bottom:22px"></div>`;
+ return top+Array.from({length:n},()=>`<div class="card sk-card"><div style="display:flex;gap:12px;align-items:center"><div class="sk" style="width:90px;height:24px"></div><div style="flex:1"></div><div class="sk" style="width:120px;height:32px"></div></div>
+ <div class="sk sk-line" style="width:60%;margin-top:22px"></div><div class="sk sk-line" style="width:40%"></div><div class="sk sk-line" style="width:55%;margin-top:18px"></div></div>`).join('');
+}
+
+// ---------- slip ----------
+const TYPES={
+ straight:['STRAIGHT','Straight bet · 1 selection','One pick. Wins if that pick wins.'],
+ parlay:['PARLAY','2-team parlay','All picks must win. Bigger payout; one loss loses the bet.'],
+ teaser:['TEASER','2-team teaser · 6 points (football)','Lines move in your favour by the points chosen. All picks must win.'],
+ rr:['ROUND ROBIN','Round robin · 2 picks by 2s','Splits your picks into every smaller parlay combination.'],
+ ifwin:['IF WIN ONLY','If-bet · win only','Second bet only goes ahead if the first one wins.']
+};
+const SLIP=[{pick:'Kingsbridge Bulls',game:'Kingsbridge Bulls @ Metro Lynx · Sun 7:20 PM',line:-7.5,am:-110},{pick:'Port Linden Stars',game:'Elm Harbor Foxes @ Port Linden Stars · Live',line:0.5,am:-110}];
+const fmtLine=v=>(v>0?'+':v<0?'−':'')+(Math.abs(v)%1?Math.floor(Math.abs(v))+'½':Math.abs(v)).toString().replace(/^0½/,'½');
+const PRICE={straight:-110,parlay:264,teaser:{'6':-110,'6.5':-120,'7':-130},rr:264,ifwin:-110};
+function renderSlip(){
+ const t=TYPES[slipType]; $('#tTag').textContent=t[0];
+ $('#tName').textContent=slipType==='teaser'?`2-team teaser · ${pts.replace('.5','½')} points (football)`:t[1];
+ $('#tDesc').textContent=t[2]; $('#teaserBox').hidden=slipType!=='teaser';
+ $$('#typebar .pill').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===slipType));
+ const legs=slipType==='straight'?SLIP.slice(0,1):SLIP;
+ $('#slipLegs').innerHTML=legs.map(l=>{const tl=l.line+parseFloat(pts);
+  return `<div class="slip-leg"><div class="sel">${l.pick} <span class="odds">${slipType==='teaser'?fmtLine(tl):fmtLine(l.line)}</span> ${slipType==='teaser'?'':oddsSpan(l.am)}</div>
+  <button class="x" aria-label="Remove ${l.pick}" onclick="toast('Concept: selection removed')">✕</button>
+  <div class="muted" style="font-size:13px">Spread · ${l.game}${slipType==='teaser'?` · <s>${fmtLine(l.line)}</s> → ${fmtLine(tl)}`:''}</div></div>`}).join('');
+ const am=slipType==='teaser'?PRICE.teaser[pts]:PRICE[slipType]; const p=$('#slipPrice'); p.dataset.am=am; p.textContent=fmtOdds(am);
+ calcSlip('risk');
+}
+function dec(am){return am>0?1+am/100:1+100/Math.abs(am)}
+function calcSlip(src){const am=+$('#slipPrice').dataset.am,d=dec(am);
+ if(src==='risk'){const r=parseFloat($('#risk').value)||0;$('#towin').value=(r*(d-1)).toFixed(2);}
+ else{const w=parseFloat($('#towin').value)||0;$('#risk').value=(w/(d-1)).toFixed(2);}
+ $('#payout').textContent=money((parseFloat($('#risk').value)||0)*d);}
+function setRisk(v){$('#risk').value=v.toFixed(2);calcSlip('risk')}
+function openSlip(t){ if(t) slipType=t; renderSlip(); document.body.classList.add('slip-open'); }
+function closeSlip(){ document.body.classList.remove('slip-open'); if(location.hash==='#slip') history.replaceState(null,'','#home'); }
+function setOdds(f){oddsFmt=f;$$('#oddsSeg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.o===f));$$('[data-am]').forEach(e=>e.textContent=fmtOdds(+e.dataset.am));}
+function pick(b){b.classList.toggle('sel');toast(b.classList.contains('sel')?'Added to bet slip (concept)':'Removed from bet slip')}
+
+// ---------- misc ----------
+let tt; function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2200)}
+function toggleBal(b){const v=$('#balv');const h=v.dataset.h!=='1';v.dataset.h=h?'1':'0';v.textContent=h?'••••••':'$1,250.00';b.setAttribute('aria-label',h?'Show balance':'Hide balance')}
+function sendMsg(m){const th=$('#thread');const d=document.createElement('div');d.className='msg me';d.innerHTML=m.replace(/</g,'&lt;')+'<span class="t">Now · sample</span>';th.appendChild(d);th.scrollTop=th.scrollHeight;
+ setTimeout(()=>{const r=document.createElement('div');r.className='msg them';r.innerHTML='(Sample auto-reply) Got it — I’ll take a look shortly.<span class="t">Now</span>';th.appendChild(r);th.scrollTop=th.scrollHeight},900)}
+function setTheme(t){document.documentElement.dataset.theme=t;try{localStorage.setItem('ck-theme',t)}catch(e){}
+ $('#themeBtn').setAttribute('aria-label',t==='dark'?'Switch to light theme':'Switch to dark theme');
+ $('#themeBtn').innerHTML=t==='dark'?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';}
+function toggleTheme(){setTheme(document.documentElement.dataset.theme==='dark'?'light':'dark')}
+
+// ---------- router ----------
+const SK_MS=+(new URLSearchParams(location.search).get('skel')||900);
+function replayLoad(id){const s=$('#s-'+id);if(!s.dataset.skel)return;s.querySelector('.skel').innerHTML=skeleton(id);s.classList.add('loading');setTimeout(()=>s.classList.remove('loading'),SK_MS)}
+function go(r){location.hash=r}
+function route(){
+ let r=(location.hash||'#signin').slice(1); let slip=false;
+ if(r==='slip'){slip=true;r='home'}
+ if(!$('#s-'+r)) r='home';
+ const signin=r==='signin';
+ $('#app').style.display=signin?'none':''; $('#tabbar').style.visibility=signin?'hidden':''; $('#fab').style.visibility=(signin||r==='chat'||r==='compare')?'hidden':'';
+ $$('.screen').forEach(s=>s.classList.toggle('on',s.id==='s-'+r));
+ $('#title').textContent=$('#s-'+r).dataset.title;
+ $$('[data-r]').forEach(a=>a.dataset.r===r?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
+ document.title=`COKAIN concept · ${$('#s-'+r).dataset.title}`;
+ if(!slip) document.body.classList.remove('slip-open');
+ replayLoad(r); window.scrollTo(0,0);
+ if(slip) openSlip(); if(r==='chat'){const th=$('#thread');th.scrollTop=th.scrollHeight}
+}
+function bindGroup(sel,cb){$$(sel+' button').forEach(b=>b.addEventListener('click',()=>{$$(sel+' button').forEach(x=>x.setAttribute(x.getAttribute('role')==='tab'?'aria-selected':'aria-pressed',x===b));cb(b)}))}
+
+document.addEventListener('DOMContentLoaded',()=>{
+ const q=new URLSearchParams(location.search).get('theme'); let saved=null; try{saved=localStorage.getItem('ck-theme')}catch(e){}
+ setTheme(q||saved||'dark');
+ renderOpen(); renderLive(); renderDays(); renderHist(); renderTiles(); renderSlip();
+ bindGroup('#obFilter',b=>renderOpen(b.dataset.f));
+ bindGroup('#hFilter',b=>{hF=b.dataset.f;renderHist()});
+ bindGroup('#ctabs',()=>renderTiles());
+ bindGroup('#pts',b=>{pts=b.dataset.p;renderSlip()});
+ bindGroup('.cas-top .seg',()=>toast('Concept: one lobby, filtered by provider'));
+ bindGroup('#s-live .pill-row',()=>{});
+ $$('#typebar .pill').forEach(b=>b.onclick=()=>{slipType=b.dataset.t;renderSlip()});
+ $$('#oddsSeg button').forEach(b=>b.onclick=()=>setOdds(b.dataset.o));
+ // before/after "after" panels (cloned live components)
+ $('#baOpen').innerHTML=`<div class="summary" style="margin-bottom:10px"><div><b>4 open bets</b> · risking <b>$180.00</b> to win <b class="pos">$819.63</b></div></div>`+betCard(OPEN[0]);
+ $('#baHist').innerHTML=`<div class="totals" style="margin-top:0">${$$('#s-history .totals .card').map(c=>c.outerHTML).join('')}</div>
+  <div class="card hist-wrap" style="overflow:hidden"><table class="hist"><thead><tr><th>Placed</th><th>Bet</th><th>Selections</th><th class="r">Risk</th><th class="r">To win</th><th>Result</th><th class="r">Net</th></tr></thead><tbody>${histRow(HIST[0])}</tbody></table></div>`;
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSlip()});
+ window.addEventListener('hashchange',route); route();
+});
+</script>
+</body>
+</html>
